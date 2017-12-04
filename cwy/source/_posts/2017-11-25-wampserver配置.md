@@ -14,6 +14,9 @@ tags:
 
 ** wamp = window + apache + mysql + php **
 
+wamp的默认端口是80,容易和已安装的ISS等其他服务冲突，导致wampserver无法启动，修改httpd.conf文件如下：
+搜索'80'找到`Listen 80`和`ServerName localhost:80`，修改'80'为想要设置的端口重启即可。
+
 wamp安装完成后，等图标变绿后，在浏览器输入`127.0.0.1`即可进入默认页面，输入localhost呢，如果不可以需要配置`httpd.conf`文件，如下图：
 ![允许all](/images/httpd.png)
 修改完后，重启wamp，在浏览器中输入localhost应该可以正常访问。访问`localhost/phpmyadmin/`时依然无法访问，但是访问`127.0.0.1/phpmyadmin`可以，需要配置wamp目录下的alias目录`phpmyadmin.conf`文件：
