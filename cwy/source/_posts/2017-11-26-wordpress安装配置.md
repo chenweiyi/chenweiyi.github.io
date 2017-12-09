@@ -23,9 +23,9 @@ tags:
 11. 填写设置成功后可以测试下，测试成功表明开启成功。
 12. 用户注册的时候，发送邮件给用户，用户点击邮件后提示“您的密码重设链接无效”，这其实不是wordpress的问题，邮箱收到邮件后，会将密码重置链接地址及其前后的“<>”一起当成链接地址生成超链接，点击此超链接后，由于传给wordpress的参数不对（多了个>），例如把鼠标移到下图的红色框的连接上，并看到浏览器左下角的URL提示连接，会发现多了一个“>”，所以wordpress提示密码重设链接无效。
 解决这个问题，打开wp根目录下的wp-login.php,找到如下代码:
-
-	$message .= '<' . network_site_url( "wp-login.php?action=rp&key=$key&login=" . rawurlencode( $user_login ), 'login' ) . ">\r\n";
-
+```javascript
+$message .= '<' . network_site_url( "wp-login.php?action=rp&key=$key&login=" . rawurlencode( $user_login ), 'login' ) . ">\r\n";
+```
 修改为：
 
 	$message .= network_site_url( "wp-login.php?action=rp&key=$key&login=" . rawurlencode( $user_login ), 'login' ) . "\r\n";
