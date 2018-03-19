@@ -38,7 +38,7 @@ $message .= '<' . network_site_url( "wp-login.php?action=rp&key=$key&login=" . r
 
 	$message .= network_site_url("wp-login.php?action=rp&key=$key&login=" . rawurlencode($user->user_login), 'login') . "\r\n\r\n";
 
-也是把`<`,`>`
+也是把`<`,`>`去掉。
 
 
 
