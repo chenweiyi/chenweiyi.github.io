@@ -18,6 +18,7 @@
 3. 创建新文件 `hexo new [layout] 文件名`
 4. 产生发布文件 `hexo generate`
 5. 部署文件 `hexo deploy`, 以上两个命令可以一起写 `hexo generate --deploy` 或者 `hexo g -d`
+6. 平时写文件时可以使用`hexo generate --watch`监听文件变化，重新生成静态文件
 
 #### 注意事项
 
