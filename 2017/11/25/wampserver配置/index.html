@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>wampserver配置 | Cwy&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="** wamp &#x3D; window + apache + mysql + php **  wamp的默认端口是80,容易和已安装的ISS等其他服务冲突，导致wampserver无法启动，修改httpd.conf文件如下：搜索’80’找到Listen 80和ServerName localhost:80，修改’80’为想要设置的端口重启即可。详细参见这篇文章 仅仅修改httpd.conf文件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="wampserver配置">
+<meta property="og:url" content="http://chenweiyi.github.io/2017/11/25/wampserver%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:site_name" content="Cwy&#39;s blog">
+<meta property="og:description" content="** wamp &#x3D; window + apache + mysql + php **  wamp的默认端口是80,容易和已安装的ISS等其他服务冲突，导致wampserver无法启动，修改httpd.conf文件如下：搜索’80’找到Listen 80和ServerName localhost:80，修改’80’为想要设置的端口重启即可。详细参见这篇文章 仅仅修改httpd.conf文件">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://chenweiyi.github.io/images/httpd.png">
+<meta property="og:image" content="http://chenweiyi.github.io/images/phpmyadmin.png">
+<meta property="og:image" content="http://chenweiyi.github.io/images/httpd2.png">
+<meta property="og:image" content="http://chenweiyi.github.io/images/httpd3.png">
+<meta property="og:image" content="http://chenweiyi.github.io/images/httpd4.png">
+<meta property="og:image" content="http://chenweiyi.github.io/images/httpd5.png">
+<meta property="article:published_time" content="2017-11-25T12:43:16.000Z">
+<meta property="article:modified_time" content="2020-05-23T11:24:45.866Z">
+<meta property="article:author" content="cwy">
+<meta property="article:tag" content="wampserver">
+<meta property="article:tag" content="php">
+<meta property="article:tag" content="mysql">
+<meta property="article:tag" content="apache">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://chenweiyi.github.io/images/httpd.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Cwy's blog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Cwy&#39;s blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">山外小楼夜听雨</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://chenweiyi.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-wampserver配置" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2017/11/25/wampserver%E9%85%8D%E7%BD%AE/" class="article-date">
+  <time class="dt-published" datetime="2017-11-25T12:43:16.000Z" itemprop="datePublished">2017-11-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E8%B4%B4/">技术贴</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      wampserver配置
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>** wamp &#x3D; window + apache + mysql + php **</p>
+<ol>
+<li>wamp的默认端口是80,容易和已安装的ISS等其他服务冲突，导致wampserver无法启动，修改httpd.conf文件如下：<br>搜索’80’找到<code>Listen 80</code>和<code>ServerName localhost:80</code>，修改’80’为想要设置的端口重启即可。详细参见<a target="_blank" rel="noopener" href="http://blog.csdn.net/paranoidyang/article/details/54293732">这篇文章</a></li>
+<li>仅仅修改httpd.conf文件可能还不够，还需要修改wamp目录下wampmanager.tpl文件，找到<code>Parameters: “http://localhost/”; Glyph: 5</code>修改为<code>Parameters: “http://localhost:8080/”; Glyph: 5</code>（比如新端口为8080）,详细参见<a target="_blank" rel="noopener" href="http://blog.csdn.net/paranoidyang/article/details/54293732">这篇文章</a></li>
+<li>修改phpmyadmin端口号：方法同2，打开wamp目录下wampmanager.tpl文件，找到<code>Parameters: “http://localhost/phpmyadmin”; Glyph: 5</code>修改为<code>Parameters: “http://localhost:8080/phpmyadmin”; Glyph: 5</code>（比如新端口为8080）,详细参见<a target="_blank" rel="noopener" href="http://blog.csdn.net/paranoidyang/article/details/54293732">这篇文章</a></li>
+<li>如何修改mysql数据库的用户名密码呢？a. 通过WAMP打开mysql控制台；b. 输入<code>use mysql;</code>，意思是使用mysql这个数据库，提示“Database changed”就行；c. 输入要修改的密码的sql语句<code>update user set password=PASSWORD(&#39;hooray&#39;) where user=&#39;root&#39;;</code>; d. 输入<code>flush privileges;</code>; e. 输入<code>quit;</code>退出。详细参见<a target="_blank" rel="noopener" href="http://blog.csdn.net/nczb007/article/details/52593958">这篇文章</a>。做完了这些关闭wampserver,重新打开可能你还是不能进入phpmyadmin,因为你还需要把新密码手动加入到phpmyadmin配置文件中，位置在wamp&#x2F;apps&#x2F;phpadmin&#x2F;config.inc.php,打开配置文件把密码写进去重启wamp就可以了。详细参见<a target="_blank" rel="noopener" href="http://blog.csdn.net/sonnylight/article/details/51900050">这篇文章</a></li>
+<li>wamp安装完成后，等图标变绿后，在浏览器输入<code>127.0.0.1</code>即可进入默认页面，输入localhost呢，如果不可以需要配置<code>httpd.conf</code>文件，如下图：<br><img src="/images/httpd.png" alt="允许all"><br>修改完后，重启wamp，在浏览器中输入localhost应该可以正常访问。访问<code>localhost/phpmyadmin/</code>时依然无法访问，但是访问<code>127.0.0.1/phpmyadmin</code>可以，需要配置wamp目录下的alias目录<code>phpmyadmin.conf</code>文件：<br><img src="/images/phpmyadmin.png" alt="允许all"></li>
+<li>一般情况下，我们把代码和程序分开，wamp默认的www目录在安装程序目录下，所以我们需要自定义www目录。还是修改<code>httpd.conf</code>目录，如下图：<br><img src="/images/httpd2.png" alt="自定义www目录"><br><img src="/images/httpd3.png" alt="自定义www目录"><br>我把目录改为d盘下的www目录，重启后输入localhost，应该可以进入d:&#x2F;www这个目录的<code>index.php</code>文件。但是点击wamp图标的www还是显示默认wamp下面的www目录，因此还需要修改两个文件<code>wamp/wampmanager.ini</code>和<code>wampmanager.tpl</code> ：<br><img src="/images/httpd4.png" alt="自定义www目录"><br><img src="/images/httpd5.png" alt="自定义www目录"><br>关闭wamp，重新打开，在点击www目录，应该就是修改后的目录了。在浏览器地址栏输入localhost也会进入修改后的目录的<code>index.php</code></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://chenweiyi.github.io/2017/11/25/wampserver%E9%85%8D%E7%BD%AE/" data-id="cl4013q5h0005fcv3cver4izu" data-title="wampserver配置" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache/" rel="tag">apache</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/" rel="tag">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wampserver/" rel="tag">wampserver</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/11/26/wordpress%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          wordpress安装配置
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/11/25/npm%E7%9F%A5%E8%AF%86/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">npm知识</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E8%B4%B4/">技术贴</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/apache/" rel="tag">apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/" rel="tag">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/" rel="tag">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wampserver/" rel="tag">wampserver</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wordpress/" rel="tag">wordpress</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/apache/" style="font-size: 10px;">apache</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/wampserver/" style="font-size: 20px;">wampserver</a> <a href="/tags/wordpress/" style="font-size: 20px;">wordpress</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/05/27/css%E7%9C%8B%E8%BF%99%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86/">css看这篇就够了</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/14/%E4%B8%8A%E4%B8%80%E7%AF%87%E7%9A%84%E5%A7%8A%E5%A6%B9%E7%AF%87-%E8%B0%88%E8%B0%88%E5%AF%B9%E8%B1%A1%E7%9A%84offsetX-clientX-pageX-screenX-layerX-x%E7%9A%84%E5%8C%BA%E5%88%AB/">上一篇的姊妹篇-谈谈对象的offsetX,clientX,pageX,screenX,layerX,x的区别</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/06/%E8%B0%88%E8%B0%88clientXXX-offsetXXX-scrollXXX%E7%9A%84%E7%94%A8%E6%B3%95/">谈谈clientXXX, offsetXXX, scrollXXX的用法</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/09/wordpress%E4%BC%98%E5%8C%96/">wordpress优化</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/26/wordpress%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/">wordpress安装配置</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 cwy<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

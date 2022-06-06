@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>谈谈clientXXX, offsetXXX, scrollXXX的用法 | Cwy&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="今天我想来探索一下几个经常搞混淆的概念，比如：  clientWidth, offsetWidth, scrollWidth有什么区别？  clientHeight, offsetHeight, scrollHeight有什么区别？  clientTop, offsetTop, scrollTop有什么区别？  clientLeft, offsetLeft, scrollLeft有什么区别？">
+<meta property="og:type" content="article">
+<meta property="og:title" content="谈谈clientXXX, offsetXXX, scrollXXX的用法">
+<meta property="og:url" content="http://chenweiyi.github.io/2018/11/06/%E8%B0%88%E8%B0%88clientXXX-offsetXXX-scrollXXX%E7%9A%84%E7%94%A8%E6%B3%95/index.html">
+<meta property="og:site_name" content="Cwy&#39;s blog">
+<meta property="og:description" content="今天我想来探索一下几个经常搞混淆的概念，比如：  clientWidth, offsetWidth, scrollWidth有什么区别？  clientHeight, offsetHeight, scrollHeight有什么区别？  clientTop, offsetTop, scrollTop有什么区别？  clientLeft, offsetLeft, scrollLeft有什么区别？">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-11-06T12:44:28.000Z">
+<meta property="article:modified_time" content="2020-05-24T07:23:56.078Z">
+<meta property="article:author" content="cwy">
+<meta property="article:tag" content="javascript">
+<meta property="article:tag" content="html">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Cwy's blog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Cwy&#39;s blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">山外小楼夜听雨</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://chenweiyi.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-谈谈clientXXX-offsetXXX-scrollXXX的用法" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/11/06/%E8%B0%88%E8%B0%88clientXXX-offsetXXX-scrollXXX%E7%9A%84%E7%94%A8%E6%B3%95/" class="article-date">
+  <time class="dt-published" datetime="2018-11-06T12:44:28.000Z" itemprop="datePublished">2018-11-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E8%B4%B4/">技术贴</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      谈谈clientXXX, offsetXXX, scrollXXX的用法
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>今天我想来探索一下几个经常搞混淆的概念，比如：</p>
+<ol>
+<li><p><code>clientWidth</code>, <code>offsetWidth</code>, <code>scrollWidth</code>有什么区别？</p>
+</li>
+<li><p><code>clientHeight</code>, <code>offsetHeight</code>, <code>scrollHeight</code>有什么区别？</p>
+</li>
+<li><p><code>clientTop</code>, <code>offsetTop</code>, <code>scrollTop</code>有什么区别？</p>
+</li>
+<li><p><code>clientLeft</code>, <code>offsetLeft</code>, <code>scrollLeft</code>有什么区别？ </p>
+</li>
+<li><p>上面这些属性和<code>style.width</code>, <code>style.height</code>, <code>style.left</code>, <code>style.top</code>有什么区别？</p>
+</li>
+<li><p><code>div.clientXXX</code> 和 <code>document.body.clientXXX</code> 有没有区别？</p>
+</li>
+<li><p>不同浏览器之间有没有什么不同？（主要是chrome，firefox，Edge）</p>
+</li>
+</ol>
+<p>要解答以上问题，最直接的方式是写一个demo测试一下，下面放出测试代码。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br></pre></td><td class="code"><pre><span class="line">&lt;!<span class="variable constant_">DOCTYPE</span> html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">  &lt;title&gt;clientTop, offsetTop, srcollTop各属性介绍&lt;/title&gt;</span><br><span class="line">  &lt;style type=&quot;text/css&quot;&gt;</span><br><span class="line">    html, body &#123;</span><br><span class="line">      /*width: 100%;</span><br><span class="line">      height: 100%;*/</span><br><span class="line">    &#125;</span><br><span class="line">    html &#123;</span><br><span class="line">      margin: 0px;</span><br><span class="line">      padding: 0px;</span><br><span class="line">    &#125;</span><br><span class="line">    body &#123;</span><br><span class="line">      border: 10px solid #cc9999;</span><br><span class="line">      padding: 10px;</span><br><span class="line">      margin: 10px;</span><br><span class="line">      background-color: #ffffcc;</span><br><span class="line">    &#125;</span><br><span class="line">    .wrap &#123;</span><br><span class="line">      position: relative;</span><br><span class="line">      margin: 10px;</span><br><span class="line">      padding: 10px;</span><br><span class="line">      border: 10px solid #333399;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    .div &#123;</span><br><span class="line">      position: relative;</span><br><span class="line">      width: 300px;</span><br><span class="line">      height: 200px;</span><br><span class="line">      overflow: auto;</span><br><span class="line">      top: 20px;</span><br><span class="line">      left: 20px;</span><br><span class="line">      border: 10px solid #ff6666;</span><br><span class="line">      margin: 10px;</span><br><span class="line">      padding: 10px;</span><br><span class="line">      background-color: #ccffff;</span><br><span class="line">      /*box-sizing: border-box;*/</span><br><span class="line">    &#125;</span><br><span class="line">    .div &gt; pre,</span><br><span class="line">    .div &gt; p &#123;</span><br><span class="line">      margin: 0px;</span><br><span class="line">    &#125;</span><br><span class="line">    .divide &#123;</span><br><span class="line">      margin-top: 50px;</span><br><span class="line">      margin-bottom: 20px;</span><br><span class="line">    &#125;</span><br><span class="line">    .divide &gt; div &#123;</span><br><span class="line">      width: 90%;</span><br><span class="line">      height: 1px;</span><br><span class="line">      border: 0px;</span><br><span class="line">      margin: 0 auto;</span><br><span class="line">      border-bottom: 1px dashed #555;</span><br><span class="line">    &#125;</span><br><span class="line">    .result &#123;</span><br><span class="line">      display: inline-block;</span><br><span class="line">      width: 400px;</span><br><span class="line">      vertical-align: top;</span><br><span class="line">    &#125;</span><br><span class="line">  &lt;/style&gt;</span><br><span class="line">  &lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    var $$ = function (id) &#123;</span><br><span class="line">      return document.querySelector(&#x27;#&#x27; + id)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    var calc = function () &#123;</span><br><span class="line">      var body = document.body</span><br><span class="line">      // ----------------------  body  --------------------------</span><br><span class="line">      $$(&#x27;bodyClientWidth&#x27;).innerText = body.clientWidth</span><br><span class="line">      $$(&#x27;bodyOffsetWidth&#x27;).innerText = body.offsetWidth</span><br><span class="line">      $$(&#x27;bodyScrollWidth&#x27;).innerText = body.scrollWidth</span><br><span class="line"></span><br><span class="line">      $$(&#x27;bodyClientHeight&#x27;).innerText = body.clientHeight</span><br><span class="line">      $$(&#x27;bodyOffsetHeight&#x27;).innerText = body.offsetHeight</span><br><span class="line">      $$(&#x27;bodyScrollHeight&#x27;).innerText = body.scrollHeight</span><br><span class="line"></span><br><span class="line">      $$(&#x27;bodyStyleTop&#x27;).innerText = body.style.top      // 必须定义在行内样式中，否则取不到这个值</span><br><span class="line">      $$(&#x27;bodyStyleLeft&#x27;).innerText = body.style.left    // 必须定义在行内样式中，否则取不到这个值</span><br><span class="line"></span><br><span class="line">      $$(&#x27;bodyClientLeft&#x27;).innerText = body.clientLeft</span><br><span class="line">      $$(&#x27;bodyClientTop&#x27;).innerText = body.clientTop</span><br><span class="line"></span><br><span class="line">      $$(&#x27;bodyOffsetLeft&#x27;).innerText = body.offsetLeft</span><br><span class="line">      $$(&#x27;bodyOffsetTop&#x27;).innerText = body.offsetTop</span><br><span class="line"></span><br><span class="line">      $$(&#x27;bodyScrollLeft&#x27;).innerText = body.scrollLeft</span><br><span class="line">      $$(&#x27;bodyScrollTop&#x27;).innerText = body.scrollTop</span><br><span class="line"></span><br><span class="line">      $$(&#x27;bodyStylePadding&#x27;).innerText = body.style.padding      // 必须定义在行内样式中，否则取不到这个值</span><br><span class="line">      $$(&#x27;bodyStyleMargin&#x27;).innerText = body.style.margin        // 必须定义在行内样式中，否则取不到这个值</span><br><span class="line">      $$(&#x27;bodyStyleWidth&#x27;).innerText = body.style.width          // 必须定义在行内样式中，否则取不到这个值</span><br><span class="line">      $$(&#x27;bodyStyleHeight&#x27;).innerText = body.style.height        // 必须定义在行内样式中，否则取不到这个值</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">      // -------------------    div    --------------------------</span><br><span class="line">      $$(&#x27;clientWidth&#x27;).innerText = $$(&#x27;div&#x27;).clientWidth       // Chrome: 内容可视宽度，值不等于style.width，包括内容区域和padding,不包括border; Firefox: 和chrome一致</span><br><span class="line">      $$(&#x27;offsetWidth&#x27;).innerText = $$(&#x27;div&#x27;).offsetWidth       // Chrome: 在clientWidth的基础上 + border水平宽度；firefox和chrome一致</span><br><span class="line">      $$(&#x27;scrollWidth&#x27;).innerText = $$(&#x27;div&#x27;).scrollWidth       // Chrome: 整个滚动内容区宽度 = 内容可视宽度 + scrollLeft(滚动条滑到最右边时); Firefox: 和chrome一致</span><br><span class="line">      $ &amp;&amp; $(&#x27;#jqWidth&#x27;).text($(&#x27;#div&#x27;).width())                // 值是数值，等于style.width的值，    </span><br><span class="line">      $ &amp;&amp; $(&#x27;#jqOuterWidth&#x27;).text($(&#x27;#div&#x27;).outerWidth())      // 值是数值，等于div.offsetWidth的值</span><br><span class="line"></span><br><span class="line">      $$(&#x27;clientHeight&#x27;).innerText = $$(&#x27;div&#x27;).clientHeight     // Chrome: 内容可视高度，值不等于style.height，包括内容区域和padding,不包括border; Firefox: 和chrome一致</span><br><span class="line">      $$(&#x27;offsetHeight&#x27;).innerText = $$(&#x27;div&#x27;).offsetHeight     // Chrome: 在clientHeight的基础上 + border水平高度；firefox和chrome一致</span><br><span class="line">      $$(&#x27;scrollHeight&#x27;).innerText = $$(&#x27;div&#x27;).scrollHeight     // Chrome: 整个滚动内容区宽度 = 内容可视高度 + scrollTop(滚动条滑到最底部时); Firefox: 和chrome一致</span><br><span class="line">      $ &amp;&amp; $(&#x27;#jqHeight&#x27;).text($(&#x27;#div&#x27;).height())              // 值是数值，等于style.height的值， </span><br><span class="line">      $ &amp;&amp; $(&#x27;#jqOuterHeight&#x27;).text($(&#x27;#div&#x27;).outerHeight())    // 值是数值，等于div.offsetHeight的值</span><br><span class="line"></span><br><span class="line">      $$(&#x27;styleTop&#x27;).innerText = $$(&#x27;div&#x27;).style.top            // 必须定义在行内样式中，否则取不到这个值</span><br><span class="line">      $$(&#x27;styleLeft&#x27;).innerText = $$(&#x27;div&#x27;).style.left          // 必须定义在行内样式中，否则取不到这个值</span><br><span class="line"></span><br><span class="line">      $$(&#x27;clientLeft&#x27;).innerText = $$(&#x27;div&#x27;).clientLeft         // Chrome: 左侧border宽度； Firefox: 和chrome一致</span><br><span class="line">      $$(&#x27;clientTop&#x27;).innerText = $$(&#x27;div&#x27;).clientTop           // Chrome: 上侧border宽度； Firefox: 和chrome一致</span><br><span class="line">      // 与当前节点的offsetParent有关</span><br><span class="line">      // Chrome: 当offsetParent 为 Body 时，此时值为 :</span><br><span class="line">      // Body的margin + border + padding + 当前节点的margin + left(当前节点如果定位了包括relative, absolute，否则，不需要这个值)</span><br><span class="line">      // 当offsetParent 为其它元素时，以这个元素为基准，此时值为：</span><br><span class="line">      // 当前offsetParent元素的padding + 当前节点的margin + left(当前节点如果定位了包括relative, absolute，否则，不需要这个值)</span><br><span class="line">      // Firefox: 当offsetPrent 为 Body 时，去掉Body的border，其它和Chrome一样</span><br><span class="line">      // 当offsetParent为其它元素时，和chrome行为一致</span><br><span class="line">      $$(&#x27;offsetLeft&#x27;).innerText = $$(&#x27;div&#x27;).offsetLeft</span><br><span class="line">      // 与offsetLeft算法一致，只不过需要把对应的left换成top         </span><br><span class="line">      $$(&#x27;offsetTop&#x27;).innerText = $$(&#x27;div&#x27;).offsetTop</span><br><span class="line"></span><br><span class="line">      // 当元素作为容器时，随着滚动条移动值不断变化，chrome和firefox行为一致</span><br><span class="line">      // scrollLeft 表示滚动条右移时，表示右移动值，单位像素</span><br><span class="line">      // scrollLeft 和 scrollTop 是可写的</span><br><span class="line">      $$(&#x27;scrollLeft&#x27;).innerText = $$(&#x27;div&#x27;).scrollLeft</span><br><span class="line">      // scrollTop 表示滚动条下移时，表示下移动值，单位像素</span><br><span class="line">      $$(&#x27;scrollTop&#x27;).innerText = $$(&#x27;div&#x27;).scrollTop</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">      $$(&#x27;stylePadding&#x27;).innerText = $$(&#x27;div&#x27;).style.padding      // 必须定义在行内样式中，否则取不到这个值</span><br><span class="line">      $$(&#x27;styleMargin&#x27;).innerText = $$(&#x27;div&#x27;).style.margin        // 必须定义在行内样式中，否则取不到这个值</span><br><span class="line">      $$(&#x27;styleWidth&#x27;).innerText = $$(&#x27;div&#x27;).style.width          // 必须定义在行内样式中，否则取不到这个值</span><br><span class="line">      $$(&#x27;styleHeight&#x27;).innerText = $$(&#x27;div&#x27;).style.height        // 必须定义在行内样式中，否则取不到这个值</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    var getOffsetParent = function (id) &#123;</span><br><span class="line">      var offsetParent = $$(id).offsetParent</span><br><span class="line">      console.log(`offsetParent.tagName: $$&#123;offsetParent.tagName&#125;`)</span><br><span class="line">    &#125;</span><br><span class="line">  &lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body onscroll=&quot;calc()&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;wrap&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;div&quot; id=&quot;div&quot; onscroll=&quot;calc()&quot;&gt;</span><br><span class="line">      &lt;p&gt;sdfsdfsadfsadfa&lt;br&gt;sdfasdfasdfasdf&lt;br&gt;sdfsdfsdfasdfsdfsdffffffffffffdsfasdfsadfsadfsdfsdfsadfsadfsadfsdfsd&lt;br&gt;ffffff士大夫撒旦法师fff&lt;br&gt;fffffff&lt;br&gt;ffffffffff&lt;br&gt;ffffsadf&lt;br&gt;sadfasdfsd&lt;br&gt;fsadsfa&lt;br&gt;sdfasdfasdf&lt;br&gt;asdfas&lt;br&gt;dfas&lt;br&gt;dfasdfsadfsd&lt;br&gt;afasdf&lt;br&gt;sadfsafsadf&lt;/p&gt;</span><br><span class="line">      </span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;divide&quot;&gt;</span><br><span class="line">      &lt;div&gt;&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;result&quot;&gt;</span><br><span class="line">      &lt;h2&gt;body&lt;/h2&gt;</span><br><span class="line">      &lt;!-- xxxWidth --&gt;</span><br><span class="line">      &lt;code&gt;body.clientWidth&lt;/code&gt;: &lt;span id=&quot;bodyClientWidth&quot;&gt;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">      &lt;code&gt;body.offsetWidth&lt;/code&gt;: &lt;span id=&quot;bodyOffsetWidth&quot;&gt;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">      &lt;code&gt;body.scrollWidth&lt;/code&gt;: &lt;span id=&quot;bodyScrollWidth&quot;&gt;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">      &lt;br&gt;</span><br><span class="line">      &lt;!-- xxxHeight --&gt;</span><br><span class="line">      &lt;code&gt;body.clientHeight&lt;/code&gt;: &lt;span id=&quot;bodyClientHeight&quot;&gt;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">      &lt;code&gt;body.offsetHeight&lt;/code&gt;: &lt;span id=&quot;bodyOffsetHeight&quot;&gt;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">      &lt;code&gt;body.scrollHeight&lt;/code&gt;: &lt;span id=&quot;bodyScrollHeight&quot;&gt;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">      &lt;br&gt;  </span><br><span class="line">      &lt;!-- left, top --&gt;</span><br><span class="line">      &lt;code&gt;body.style.top&lt;/code&gt;: &lt;span id=&quot;bodyStyleTop&quot;&gt;&lt;/span&gt;&lt;br&gt; </span><br><span class="line">      &lt;code&gt;body.style.left&lt;/code&gt;: &lt;span id=&quot;bodyStyleLeft&quot;&gt;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">      &lt;br&gt;</span><br><span class="line">      &lt;!-- padding, margin, border, width, height --&gt;</span><br><span class="line">      &lt;code&gt;body.style.padding&lt;/code&gt;: &lt;span id=&quot;bodyStylePadding&quot;&gt;&lt;/span&gt;&lt;br&gt; </span><br><span class="line">      &lt;code&gt;body.style.margin&lt;/code&gt;: &lt;span id=&quot;bodyStyleMargin&quot;&gt;&lt;/span&gt;&lt;br&gt; </span><br><span class="line">      &lt;code&gt;body.style.width&lt;/code&gt;: &lt;span id=&quot;bodyStyleWidth&quot;&gt;&lt;/span&gt;&lt;br&gt; </span><br><span class="line">      &lt;code&gt;body.style.height&lt;/code&gt;: &lt;span id=&quot;bodyStyleHeight&quot;&gt;&lt;/span&gt;&lt;br&gt; </span><br><span class="line">      &lt;br&gt;</span><br><span class="line">      &lt;!-- xxxLeft, xxxTop --&gt;</span><br><span class="line">      &lt;code&gt;body.clientLeft&lt;/code&gt;: &lt;span id=&quot;bodyClientLeft&quot;&gt;&lt;/span&gt;&lt;br&gt; </span><br><span class="line">      &lt;code&gt;body.clientTop&lt;/code&gt;: &lt;span id=&quot;bodyClientTop&quot;&gt;&lt;/span&gt;&lt;br&gt; </span><br><span class="line">      &lt;code&gt;body.offsetLeft&lt;/code&gt;: &lt;span id=&quot;bodyOffsetLeft&quot;&gt;&lt;/span&gt;&lt;br&gt; </span><br><span class="line">      &lt;code&gt;body.offsetTop&lt;/code&gt;: &lt;span id=&quot;bodyOffsetTop&quot;&gt;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">      &lt;code&gt;body.scrollLeft&lt;/code&gt;: &lt;span id=&quot;bodyScrollLeft&quot;&gt;&lt;/span&gt;&lt;br&gt; </span><br><span class="line">      &lt;code&gt;body.scrollTop&lt;/code&gt;: &lt;span id=&quot;bodyScrollTop&quot;&gt;&lt;/span&gt;&lt;br&gt; </span><br><span class="line">      &lt;br&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;result&quot;&gt;</span><br><span class="line">      &lt;h2&gt;div&lt;/h2&gt;</span><br><span class="line">      &lt;!-- xxxWidth --&gt;</span><br><span class="line">      &lt;code&gt;div.clientWidth&lt;/code&gt;: &lt;span id=&quot;clientWidth&quot;&gt;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">      &lt;code&gt;div.offsetWidth&lt;/code&gt;: &lt;span id=&quot;offsetWidth&quot;&gt;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">      &lt;code&gt;div.scrollWidth&lt;/code&gt;: &lt;span id=&quot;scrollWidth&quot;&gt;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">      &lt;code&gt;jQuery width&lt;/code&gt;: &lt;span id=&quot;jqWidth&quot;&gt;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">      &lt;code&gt;jQuery outerWidth&lt;/code&gt;: &lt;span id=&quot;jqOuterWidth&quot;&gt;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">      &lt;br&gt;</span><br><span class="line">      &lt;!-- xxxHeight --&gt;</span><br><span class="line">      &lt;code&gt;div.clientHeight&lt;/code&gt;: &lt;span id=&quot;clientHeight&quot;&gt;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">      &lt;code&gt;div.offsetHeight&lt;/code&gt;: &lt;span id=&quot;offsetHeight&quot;&gt;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">      &lt;code&gt;div.scrollHeight&lt;/code&gt;: &lt;span id=&quot;scrollHeight&quot;&gt;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">      &lt;code&gt;jQuery height&lt;/code&gt;: &lt;span id=&quot;jqHeight&quot;&gt;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">      &lt;code&gt;jQuery outerHeight&lt;/code&gt;: &lt;span id=&quot;jqOuterHeight&quot;&gt;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">      &lt;br&gt;  </span><br><span class="line">      &lt;!-- left, top --&gt;</span><br><span class="line">      &lt;code&gt;div.style.top&lt;/code&gt;: &lt;span id=&quot;styleTop&quot;&gt;&lt;/span&gt;&lt;br&gt; </span><br><span class="line">      &lt;code&gt;div.style.left&lt;/code&gt;: &lt;span id=&quot;styleLeft&quot;&gt;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">      &lt;br&gt;</span><br><span class="line">      &lt;!-- padding, margin, border, width, height --&gt;</span><br><span class="line">      &lt;code&gt;div.style.padding&lt;/code&gt;: &lt;span id=&quot;stylePadding&quot;&gt;&lt;/span&gt;&lt;br&gt; </span><br><span class="line">      &lt;code&gt;div.style.margin&lt;/code&gt;: &lt;span id=&quot;styleMargin&quot;&gt;&lt;/span&gt;&lt;br&gt; </span><br><span class="line">      &lt;code&gt;div.style.width&lt;/code&gt;: &lt;span id=&quot;styleWidth&quot;&gt;&lt;/span&gt;&lt;br&gt; </span><br><span class="line">      &lt;code&gt;div.style.height&lt;/code&gt;: &lt;span id=&quot;styleHeight&quot;&gt;&lt;/span&gt;&lt;br&gt; </span><br><span class="line">      &lt;br&gt;</span><br><span class="line">      &lt;!-- xxxLeft, xxxTop --&gt;</span><br><span class="line">      &lt;code&gt;div.clientLeft&lt;/code&gt;: &lt;span id=&quot;clientLeft&quot;&gt;&lt;/span&gt;&lt;br&gt; </span><br><span class="line">      &lt;code&gt;div.clientTop&lt;/code&gt;: &lt;span id=&quot;clientTop&quot;&gt;&lt;/span&gt;&lt;br&gt; </span><br><span class="line">      &lt;code&gt;div.offsetLeft&lt;/code&gt;: &lt;span id=&quot;offsetLeft&quot;&gt;&lt;/span&gt;&lt;br&gt; </span><br><span class="line">      &lt;code&gt;div.offsetTop&lt;/code&gt;: &lt;span id=&quot;offsetTop&quot;&gt;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">      &lt;code&gt;div.scrollLeft&lt;/code&gt;: &lt;span id=&quot;scrollLeft&quot;&gt;&lt;/span&gt;&lt;br&gt; </span><br><span class="line">      &lt;code&gt;div.scrollTop&lt;/code&gt;: &lt;span id=&quot;scrollTop&quot;&gt;&lt;/span&gt;&lt;br&gt; </span><br><span class="line">      &lt;br&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">  &lt;script src=&quot;http://code.jquery.com/jquery-2.1.1.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">  &lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    window.onload = function () &#123;</span><br><span class="line">      calc()</span><br><span class="line">      getOffsetParent(&#x27;div&#x27;)</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">  &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="额外说明"><a href="#额外说明" class="headerlink" title="额外说明"></a>额外说明</h3><ol>
+<li><p>在所在容器的css属性是<code>box-sizing: content-box(默认)</code> 时，<code>style.width</code>实际上是：实际内容宽度 + 浏览器默认滚动条宽度（在chrome和firefox上测试了都等于17px），而<code>clientWidth</code>这时等于&#x3D; 实际内容（style.width - 浏览器滚动条默认宽度） + padding(即paddingLeft + paddingRight)，不包括滚动条宽度，因此此时<code>clientWidth != style.width</code>;在所在容器的css属性是<code>box-sizing: border-box</code>时，这时<code>style.width</code>等于<code>offsetWidth</code>，即实际内容宽度 + padding + border，而这时<code>clientWidth</code>等于 &#x3D; 实际内容 + padding，但是这时实际内容时多少呢？实际内容等于 &#x3D; （style.width - border - padding - 浏览器滚动条默认宽度）</p>
+</li>
+<li><p>在css属性是<code>box-sizing:content-box(默认)</code>时，<code>jquery.width() = style.width , jquery.outerWidth() = dom.offsetWidth</code> ; 在css属性是<code>box-sizing:border-box</code>时，<code>jquery.width() = style.width - border - padding , jquery.outerWidth() = dom.offsetWidth</code></p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://chenweiyi.github.io/2018/11/06/%E8%B0%88%E8%B0%88clientXXX-offsetXXX-scrollXXX%E7%9A%84%E7%94%A8%E6%B3%95/" data-id="cl4013q5m000bfcv37uog2cjc" data-title="谈谈clientXXX, offsetXXX, scrollXXX的用法" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/" rel="tag">html</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/11/14/%E4%B8%8A%E4%B8%80%E7%AF%87%E7%9A%84%E5%A7%8A%E5%A6%B9%E7%AF%87-%E8%B0%88%E8%B0%88%E5%AF%B9%E8%B1%A1%E7%9A%84offsetX-clientX-pageX-screenX-layerX-x%E7%9A%84%E5%8C%BA%E5%88%AB/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          上一篇的姊妹篇-谈谈对象的offsetX,clientX,pageX,screenX,layerX,x的区别
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/12/09/wordpress%E4%BC%98%E5%8C%96/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">wordpress优化</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E8%B4%B4/">技术贴</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/apache/" rel="tag">apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/" rel="tag">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/" rel="tag">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wampserver/" rel="tag">wampserver</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wordpress/" rel="tag">wordpress</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/apache/" style="font-size: 10px;">apache</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/wampserver/" style="font-size: 20px;">wampserver</a> <a href="/tags/wordpress/" style="font-size: 20px;">wordpress</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/05/27/css%E7%9C%8B%E8%BF%99%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86/">css看这篇就够了</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/14/%E4%B8%8A%E4%B8%80%E7%AF%87%E7%9A%84%E5%A7%8A%E5%A6%B9%E7%AF%87-%E8%B0%88%E8%B0%88%E5%AF%B9%E8%B1%A1%E7%9A%84offsetX-clientX-pageX-screenX-layerX-x%E7%9A%84%E5%8C%BA%E5%88%AB/">上一篇的姊妹篇-谈谈对象的offsetX,clientX,pageX,screenX,layerX,x的区别</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/06/%E8%B0%88%E8%B0%88clientXXX-offsetXXX-scrollXXX%E7%9A%84%E7%94%A8%E6%B3%95/">谈谈clientXXX, offsetXXX, scrollXXX的用法</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/09/wordpress%E4%BC%98%E5%8C%96/">wordpress优化</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/26/wordpress%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/">wordpress安装配置</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 cwy<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

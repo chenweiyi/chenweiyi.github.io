@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>git使用心得 | Cwy&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="平时经常使用github，clone别人的项目或者自己写项目上传到github都或多或少用到git，但是一段时间不用了又忘了命令，总要浪费些时间查资料，不胜其烦，好记性不如烂笔头，今天我想自己总结一下，加深记忆，方便快速查阅，下面不啰嗦直接上代码：  创建SSH Key。在用户主目录下，看看有没有.ssh目录，如果有，再看看这个目录下有没有id_rsa和id_rsa.pub这两个文件，如果已经有了">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git使用心得">
+<meta property="og:url" content="http://chenweiyi.github.io/2017/08/26/git%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/index.html">
+<meta property="og:site_name" content="Cwy&#39;s blog">
+<meta property="og:description" content="平时经常使用github，clone别人的项目或者自己写项目上传到github都或多或少用到git，但是一段时间不用了又忘了命令，总要浪费些时间查资料，不胜其烦，好记性不如烂笔头，今天我想自己总结一下，加深记忆，方便快速查阅，下面不啰嗦直接上代码：  创建SSH Key。在用户主目录下，看看有没有.ssh目录，如果有，再看看这个目录下有没有id_rsa和id_rsa.pub这两个文件，如果已经有了">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-08-26T02:27:01.000Z">
+<meta property="article:modified_time" content="2020-05-23T11:24:45.865Z">
+<meta property="article:author" content="cwy">
+<meta property="article:tag" content="git">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Cwy's blog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Cwy&#39;s blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">山外小楼夜听雨</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://chenweiyi.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-git使用心得" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2017/08/26/git%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/" class="article-date">
+  <time class="dt-published" datetime="2017-08-26T02:27:01.000Z" itemprop="datePublished">2017-08-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E8%B4%B4/">技术贴</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      git使用心得
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>平时经常使用github，clone别人的项目或者自己写项目上传到github都或多或少用到git，但是一段时间不用了又忘了命令，总要浪费些时间查资料，不胜其烦，好记性不如烂笔头，今天我想自己总结一下，加深记忆，方便快速查阅，下面不啰嗦直接上代码：</p>
+<ol>
+<li><p>创建SSH Key。在用户主目录下，看看有没有.ssh目录，如果有，再看看这个目录下有没有<code>id_rsa</code>和<code>id_rsa.pub</code>这两个文件，如果已经有了，不需要创建了。如果没有，执行此命令，创建SSH Key。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">&quot;youremail@example.com&quot;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>git初始化,让当前目录处理git管理之下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加文件。file可以是具体文件名，也可以是文件夹，甚至可以是<code>.</code>(表示add当前所有文件)，<code>post/*</code>(表示post目录下的所有文件)，<code>post/*.js</code>(表示post目录下的所有js文件) </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add &lt;file&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看当前状态，一般系统会提示下一步的操作。比如是否需要commit , push 等操作</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>提交文件到版本库，可以输入提交信息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m <span class="string">&quot;message&quot;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>打印命令可以查看历史记录，<code>git log</code>命令查看的更详细，<code>git log --pretty=oneline</code>命令更直观</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">log</span></span><br><span class="line">$ git <span class="built_in">log</span> --pretty=oneline</span><br><span class="line">$ git <span class="built_in">log</span> --pretty=oneline --abbrev-commit</span><br><span class="line">$ git <span class="built_in">log</span> --graph</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>有时候需要回到上一个版本或者指定版本需要用到这个命令。<code>HEAD</code>表示当前版本，<code>HEAD^</code>表示上一个版本，上上个版本就是<code>HEAD^^</code>，当前版本往上100个版本就是<code>HEAD~100</code>。当前这里也可以使用提交的id，eg. <code>3628164...882e1e0</code>，一般取<strong>前6位</strong>就可以了</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git reset --hard HEAD^</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>有时候版本切回之前的版本了，但是又想恢复到现在的版本，那如何知道现在的版本号呢？别着急，<code>git reflog</code>帮你排除忧虑，这个命令记录了你之前所有版本记录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git reflog</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可以丢弃（discard）工作区的修改，或者已经使用过<code>git add</code>命令后又修改了工作区的内容但是想丢弃，回到<code>git add</code>时的状态。<br>即回到上一次<code>git add</code>或者<code>git commit</code>的状态。如果你<code>git add</code>了一些资料，但是还没有<code>git commmit</code>，这时你想丢弃暂存区的内容，可以使用命令<code>git reset HEAD &lt;file&gt;</code>把内容打回到工作区，再使用命令<code>git checkout -- &lt;file&gt;</code>把工作区的内容丢弃。如果你已经使用了<code>git commit</code>提交了内容，但是又反悔了，可以使用<code>git reset --hard HEAD^</code>返回上一个版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -- &lt;file&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除文件。如果删除了文件，又反悔了，因为此时没有存储到暂存区，所以可以使用<code>git checkout -- &lt;file&gt;</code>恢复。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">rm</span> &lt;file&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除文件。注意和<code>rm &lt;file&gt;</code>的区别，<code>git rm &lt;file&gt;</code>相当于<code>rm &lt;file&gt;</code> + <code>git add &lt;file&gt;</code>。因此若想恢复之前的状态，需要先执行<code>git reset HEAD &lt;file&gt;</code>打回到工作区，再执行<code>git checkout -- &lt;file&gt;</code>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">rm</span> &lt;file&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>这条命令是把本地库和github上的远程库建立关联。这个是采用ssh的方式，所以github上的ssh配置里面需要有你本地的ssh公钥。后面的<code>chenweiyi/gitTest</code>是你的github账号名和项目名。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add origin git@github.com:chenweiyi/gitTest.git</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>当你首次提交文件到github时，需要输入这条命令。<code>push</code>推，表示推送到github；<code>origin</code>远程仓库名；<code>master</code>分支名；<code>-u</code>表示把本地master和远程仓库的master分支关联起来，以后再推送或者拉取时可以简化命令<code>git push origin master</code> &#x2F; <code>git pull</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push -u origin master</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>从远程仓库中克隆项目到本地。当你执行这条命令时，git自动把本地<code>master</code>分支和远程库的<code>master</code>分支对应起来，远程库默认仓库名时<code>origin</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> git@github.com:chenweiyi/gitTest.git</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看当前项目分支</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建名为<em>name</em>的分支</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch &lt;name&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>切换到名为<em>name</em>的分支</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout &lt;name&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建并切换到名为<em>name</em>的分支</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -b &lt;name&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>合并名为<em>name</em>的分支到当前分支</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git merge &lt;name&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除名为<em>name</em>的分支</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch -d &lt;name&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看远程库的信息，<code>$ git remote -v</code> 查看更详细的信息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>推送名为<em>branchName</em>分支到远程库</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin &lt;branchName&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>拉去远程分支到本地。当你从远程库克隆时，默认情况下只能看到本地master分支。可以用<code>git branch</code>命令查看下。现在要看到其他分支就必须使用这个命令创建。比如<code>git checkout -b dev origin/dev</code>就能把远程<code>dev</code>分支创建到本地</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -b &lt;branchName&gt; origin/&lt;branchName&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>与远程库创建连接后，即可使用此命令拉取远程库分支内容到本地。如果拉取失败，则可根据提示使用<code>git branch --set-upstream &lt;branchName&gt; origin/&lt;branchName&gt;</code> 来指定本地分支<code>branchName</code>与远程分支的连接。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git pull</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>首先切换到需要打标签的分支，再打标签。默认标签是打在最新提交的commit上的。有时候，如果忘了打标签，比如，现在已经是周五了，但应该在周一打的标签没有打，怎么办？方法是找到历史提交的commit id，然后打上就可以了。eg. <code>$ git tag v0.9 6224937</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout &lt;branchName&gt;</span><br><span class="line">$ git tag &lt;tagName&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看所有的标签。注意，标签不是按时间顺序列出，而是按字母排序的。可以使用<code>git show &lt;tagName&gt;</code>查看标签信息。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git tag</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可以创建带有说明的标签，<code>-a</code> 指定标签名 ，<code>-m</code> 指定标签信息 ，<code>commitId</code> 版本id</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git tag -a &lt;tagName&gt; -m &lt;message&gt; [commitID]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>标签打错了可以删除标签</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag -d &lt;tagName&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建的标签都只存储在本地，不会自动推送到远程 ，使用此命令推送到远程。或者一次性推送本地尚未推送到远程的所有标签，命令：<code>git push origin --tags</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin &lt;tagName&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果标签已经推送到远程，要删除远程标签就麻烦一点，先从本地删除：<code>git tag -d v1.0</code>。然后再使用该命令：<code>git push origin :refs/tags/v1.0</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin :refs/tags/&lt;tagName&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>保存代码现场</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看所有的stash</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash list</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>恢复指定的stash</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git stash apply stash@&#123;x&#125;</span><br><span class="line">或者恢复最近的stash</span><br><span class="line">git stash pop</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除stash</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash drop</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>有时候合并分支会出现界面被锁住的情况，这时处理方法： 先按 <code>ESC</code>，再输入 <code>:wq</code>，按一下 <code>Enter</code> 键即可退出</p>
+</li>
+<li><p>出现 <code>warning: LF will be replaced by CRLF in ...</code> 提示时，设置 <code>git config --global core.autocrlf false</code> 或者 <code>git config --global core.safecrlf false</code> 消除提示</p>
+</li>
+<li><p>有时<code>.gitignore</code>配置文件不生效，原因是某些文件已经被纳入了版本管理中，做法是删除本地缓存文件 <code>git rm -r --cached</code> ，然后重新添加文件到仓库中 <code>git add xxx </code> 和 <code>git commit -m &#39;xxx&#39; </code></p>
+</li>
+<li><p>本地创建的项目，需要推送到github或者码云上去，首先，你要在github或者码云上创建一个项目，例如名称为<code>projectX</code>，然后使用<code>git init</code>初始化本地工程，再次使用(以码云为例)<code>git remote add origin git@gitee.com:cwy7/projectX.git</code>，然后拉去远程项目使用<code>git pull --rebase origin master</code>，然后检查下状态 <code>git status</code> 以继续下一步操作</p>
+</li>
+<li><p>查看某一个命令的使用说明</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git &lt;<span class="built_in">command</span>&gt; --<span class="built_in">help</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://chenweiyi.github.io/2017/08/26/git%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/" data-id="cl4013q5d0001fcv34ugc5wlx" data-title="git使用心得" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">git</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/11/25/npm%E7%9F%A5%E8%AF%86/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          npm知识
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E8%B4%B4/">技术贴</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/apache/" rel="tag">apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/" rel="tag">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/" rel="tag">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wampserver/" rel="tag">wampserver</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wordpress/" rel="tag">wordpress</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/apache/" style="font-size: 10px;">apache</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/wampserver/" style="font-size: 20px;">wampserver</a> <a href="/tags/wordpress/" style="font-size: 20px;">wordpress</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/05/27/css%E7%9C%8B%E8%BF%99%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86/">css看这篇就够了</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/14/%E4%B8%8A%E4%B8%80%E7%AF%87%E7%9A%84%E5%A7%8A%E5%A6%B9%E7%AF%87-%E8%B0%88%E8%B0%88%E5%AF%B9%E8%B1%A1%E7%9A%84offsetX-clientX-pageX-screenX-layerX-x%E7%9A%84%E5%8C%BA%E5%88%AB/">上一篇的姊妹篇-谈谈对象的offsetX,clientX,pageX,screenX,layerX,x的区别</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/06/%E8%B0%88%E8%B0%88clientXXX-offsetXXX-scrollXXX%E7%9A%84%E7%94%A8%E6%B3%95/">谈谈clientXXX, offsetXXX, scrollXXX的用法</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/09/wordpress%E4%BC%98%E5%8C%96/">wordpress优化</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/26/wordpress%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/">wordpress安装配置</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 cwy<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

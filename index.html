@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Cwy&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="html css javascript nodejs">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cwy&#39;s blog">
+<meta property="og:url" content="http://chenweiyi.github.io/index.html">
+<meta property="og:site_name" content="Cwy&#39;s blog">
+<meta property="og:description" content="html css javascript nodejs">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="cwy">
+<meta property="article:tag" content="前端,js,jquery,javascript,html5,node,nodejs,node.js,Developer,Programmer,html,css,css3,vue,vuex,vue-router">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Cwy's blog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Cwy&#39;s blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">山外小楼夜听雨</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://chenweiyi.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-css看这篇就够了" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/05/27/css%E7%9C%8B%E8%BF%99%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86/" class="article-date">
+  <time class="dt-published" datetime="2022-05-27T08:48:19.000Z" itemprop="datePublished">2022-05-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/05/27/css%E7%9C%8B%E8%BF%99%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86/">css看这篇就够了</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <img src="/images/css-bg.png" width="100%">
+
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>这篇文章里面我不想讲一些概念性的东西，这些概念性的知识是必要的，但是也是可以很容易在往上搜索到的，需要的同学自己可以在往上查找，我希望讲述一些我自己内化的知识，这些知识在实际工作中用的比较多，也可以作为一个手册，有需要可以随时查找。</p>
+<h2 id="范围"><a href="#范围" class="headerlink" title="范围"></a>范围</h2><p>这篇文档讲述的内容暂时不会包括移动端的 css 技术，说实话移动端的我了解的也比较少，主要平时用的比较少。另外，老版本 IE 的兼容性问题也不会被提及，因为这些陈旧的知识，慢慢会被舍弃掉，平时用的也不多。</p>
+<h2 id="基础部分"><a href="#基础部分" class="headerlink" title="基础部分"></a>基础部分</h2><h3 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h3><p><img src="/images/css-box.png" alt="盒模型"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">box-sizing: content-box|border-box|inherit;</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>属性类型</th>
+<th>可选值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>box-sizing</td>
+<td>content-box</td>
+<td><em>width</em> 仅仅包含内容，不包含 <em>border</em> 和 <em>padding</em></td>
+</tr>
+<tr>
+<td>box-sizing</td>
+<td>border-box</td>
+<td><em>width</em> 包含 <em>border</em> 和 <em>padding</em></td>
+</tr>
+</tbody></table>
+<h3 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h3><blockquote>
+<p><a target="_blank" rel="noopener" href="https://jsrun.net/XLzKp/edit">Demo</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>选择器类型</th>
+<th>举例</th>
+<th>权级</th>
+<th>权重</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>元素选择器</td>
+<td>p &#x2F; span</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>id 选择器</td>
+<td>#id</td>
+<td>3</td>
+<td>100</td>
+</tr>
+<tr>
+<td>类选择器</td>
+<td>.class</td>
+<td>2</td>
+<td>10</td>
+</tr>
+<tr>
+<td>通用选择器</td>
+<td>* {}</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://jsrun.net/XLzKp/edit">组合选择器</a></td>
+<td>1. 后代；2. 子带；3. 兄弟选择器；4. 交集选择器；5. 并集选择器</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/css/css_pseudo_classes.asp">伪类选择器</a></td>
+<td>span:hover{}</td>
+<td>2</td>
+<td>-</td>
+</tr>
+<tr>
+<td>属性选择器</td>
+<td>span[class&#x3D;”aa”] &#x2F; a[href]</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>!important</td>
+<td>-</td>
+<td>5</td>
+<td>10000</td>
+</tr>
+<tr>
+<td>内联样式</td>
+<td>-</td>
+<td>4</td>
+<td>1000</td>
+</tr>
+</tbody></table>
+<p>需要补充的是：</p>
+<ol>
+<li>权值可以相加，<strong>权级不可跃迁</strong>，比如 11 个 class 选择器 <strong><em>也小于</em></strong> 1 个 id 选择器</li>
+<li>组合选择器可能是元素选择器，类选择器，id 选择器，因此要具体情况具体分析</li>
+<li>权值相同时，以最后面的生效</li>
+<li>权值不同时，权重高的生效</li>
+</ol>
+<h3 id="块元素和行内元素"><a href="#块元素和行内元素" class="headerlink" title="块元素和行内元素"></a>块元素和行内元素</h3><h4 id="块元素"><a href="#块元素" class="headerlink" title="块元素"></a>块元素</h4><ol>
+<li>默认情况下，块元素是独占一行的。</li>
+<li>常见的块元素：div, p, h1-h6, table, hr, ul, ol, form</li>
+<li>高度，行高，内外边距均可设置</li>
+<li>宽度缺省是容器宽度的 100%</li>
+<li>可以容纳内联元素和其他块元素</li>
+</ol>
+<h4 id="行内元素"><a href="#行内元素" class="headerlink" title="行内元素"></a>行内元素</h4><p>也叫内嵌元素或者内联元素。</p>
+<ol>
+<li>默认情况下，现在在一行，一行显示不下，才会换行显示。</li>
+<li>任何不是块级元素的都是行内元素，比如：a, span, label, strong</li>
+<li>宽高，行高，内外边距均不可设置；</li>
+<li>宽度就是它容纳的文本或者图片的宽度，不可改变；</li>
+<li>行内元素只能容纳其他行内元素或者文本；</li>
+</ol>
+<p><strong>当然如果把行内元素转化为块元素（display: inline-block or block），则该行内元素具有块元素的一切特征。</strong></p>
+<h4 id="标准文档流"><a href="#标准文档流" class="headerlink" title="标准文档流"></a>标准文档流</h4><ol>
+<li>将窗体自上而下分成一行一行，并在每行中按从左至右的顺序排放元素，即为标准文档流。</li>
+<li>每个非浮动块级元素都独占一行，浮动元素则按规定浮在行的一端。若当前行放不下，则再另起一行浮动。</li>
+<li>内联元素不会独占一行，除非一行摆不下，才会另起一行</li>
+<li>浮动，绝对定位，固定定位，这三种情况将使元素脱离标准文档流</li>
+<li>浮动元素不占任何正常标准文档流空间，而浮动元素的定位还是基于正常的文档流，然后从文档流中抽出并尽可能远的移动至左侧或者右侧。文字内容会围绕在浮动元素周围。当一个元素从正常文档流中抽出后，仍然在文档流中的其他元素将忽略该元素并填补他原先的空间</li>
+<li>相对定位（position: relative）并不会脱离文档流，只是相对于原位置进行偏移，但仍保留原位置。</li>
+</ol>
+<h3 id="浮动和定位"><a href="#浮动和定位" class="headerlink" title="浮动和定位"></a>浮动和定位</h3><p>css 布局有三种机制 – 普通流，浮动，定位，下面讲一下浮动和定位。</p>
+<h4 id="浮动（float）"><a href="#浮动（float）" class="headerlink" title="浮动（float）"></a>浮动（float）</h4><blockquote>
+<p>浮动例子[demo](<a target="_blank" rel="noopener" href="https://jsrun.net/uvzKp/edit">float - JSRUN.NET</a>)</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">float = left | right | none | inherit</span><br><span class="line">clear = left | right | none | inherit</span><br></pre></td></tr></table></figure>
+
+<p>浮动的特点：</p>
+<ol>
+<li>脱离标准流，不占位置（自己原来的位子漏给后面的标准流）</li>
+<li>浮动只能往左或者往右移动，不能上下浮动，直到它的边缘碰到包含框或者另一个浮动元素为止，如果父亲元素装不下了，默认另起一行显示，浮动元素之间默认无缝隙。</li>
+<li>任何元素都可以添加浮动，无论它是块元素还是行内元素，浮动之后可以直接设置宽高，默认行为类似于行内块特性，不需要 display 转换。</li>
+</ol>
+<p>浮动的使用技巧：一般一个标准流的父亲，里面一个孩子浮动了，其他的孩子也都浮动了。</p>
+<p>浮动元素于父元素的关系：</p>
+<ol>
+<li>浮动的元素压不住父元素的边框；</li>
+<li>浮动的元素压不住父元素的 padding;</li>
+<li>定位可以随便压；</li>
+</ol>
+<p>清除浮动的理解：</p>
+<ol>
+<li>清除浮动不是真的把浮动清除，而是清除加了浮动带给后面的标准流的影响；</li>
+<li>清除浮动是针对标准流元素的，清除的是浮动元素对自身的影响；</li>
+<li>清除浮动意味着，清除那一侧的元素不再具有浮动效果（实际还是有浮动的）;</li>
+</ol>
+<p>什么时候清除浮动？</p>
+<ol>
+<li>父亲没有高度；</li>
+<li>子元素有浮动；</li>
+<li>因为浮动影响了后面的布局；</li>
+</ol>
+<h4 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h4><blockquote>
+<p><a target="_blank" rel="noopener" href="https://jsrun.net/aLzKp/edit">Demo</a>例子</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">position = relative | absolute | fixed | <span class="keyword">static</span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>相对定位（position: relative）: 不会脱离文档流，不影响其他元素的布局，只是基于原位置偏移了一定的位置，并保留原来占的位置。</li>
+<li>绝对定位（position: absolute）: 会脱离文档流，会影响其他元素的布局，元素原先在标准文档流中所占的空间会关闭，就好像该元素原本不存在一样， 相对于离它最近的父元素带有相对定位或者绝对定位的元素做偏移。</li>
+<li>固定定位（position: fixed）: 会脱离文档流，以浏览器的可视窗口为基准进行偏移，跟父元素没有任何关系，不随滚动条滚动。</li>
+</ol>
+<h4 id="浮动和定位的使用的场景："><a href="#浮动和定位的使用的场景：" class="headerlink" title="浮动和定位的使用的场景："></a>浮动和定位的使用的场景：</h4><ol>
+<li><p>浮动会脱离文档流，但是也会影响其后面的元素排布，因此如果是需要方便的布局，选择绝对定位比较好，浮动一般用于导航条等横式布局中。</p>
+</li>
+<li><p>父元素内部是浮动元素的，如果需要撑满父元素，有几种方式：</p>
+<ol>
+<li>父元素设置伪元素清除浮动</li>
+<li>父元素内部加入一个清除浮动的元素</li>
+<li>父元素设置 overflow</li>
+</ol>
+</li>
+<li><p>父元素内部是绝对定位元素的，父元素的高度是撑不开的，如果需要撑开，需要通过 <em>javascript</em> 计算父元素的高度</p>
+</li>
+</ol>
+<h3 id="弹性盒子布局-flex"><a href="#弹性盒子布局-flex" class="headerlink" title="弹性盒子布局(flex)"></a>弹性盒子布局(flex)</h3><img src="/images/css-flex.png" width="100%" />
+
+<p>Flex 布局是 css3 新加入的布局方案，可以简便，完整，响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持。Flex 布局将成为未来布局的首选方案。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">display</span>: flex | (inline - flex)</span><br></pre></td></tr></table></figure>
+
+<p>注意：设置 Flex 布局后，子元素的<code>float</code>,<code>clear</code>,<code>vertical-align</code>属性将失效。</p>
+<p>对着上图解释一下 flex 布局的大致情况：</p>
+<ol>
+<li>采用 flex 布局的元素，称为容器，它的所有子元素自动成为容器的成员，称为项目。</li>
+<li>容器默认存在两个轴，主轴（main axis）和侧轴（cross axis），两个轴互相垂直。主轴的开始位置（与边框的交叉点，左侧或者上侧）叫做<code>main start</code> ,结束位置叫做<code>main end</code>; 侧轴的开始位置叫做<code>cross start</code>,结束位置叫做<code>cross end</code>。</li>
+<li>项目默认沿主轴排列，单个项目占据的主轴空间叫做<code>main size</code>, 占据的侧轴空间叫做<code>cross size</code>。</li>
+</ol>
+<h5 id="容器的属性"><a href="#容器的属性" class="headerlink" title="容器的属性"></a>容器的属性</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">// 定义了主轴的方向：</span><br><span class="line">// 水平（起点在左端） | 水平（起点在右端）| 垂直（起点上端） | 垂直（起点下沿）</span><br><span class="line">flex-direction: row(默认) | row-reverse | column | column-reverse;</span><br><span class="line">// 定义了项目在主轴上排不下，应该如何显示</span><br><span class="line">// 不换行 | 换行 | 换行（行序置换）</span><br><span class="line">flex-wrap: nowrap(默认) | wrap | wrap-reverse;</span><br><span class="line">// flex-direction 和 flex-wrap的简写,比如 row nowrap</span><br><span class="line">flex-flow: &lt;flex-direction&gt; &lt;flex-wrap&gt;;</span><br><span class="line"></span><br><span class="line">// 定义了项目在主轴上的对齐方式。</span><br><span class="line">// flex-start: 左对齐（第一个项目紧靠左边框）</span><br><span class="line">// flex-end: 右对齐（最后一个项目紧靠左边框）</span><br><span class="line">// center: 居中</span><br><span class="line">// space-between: 两端对齐（紧靠边框），项目之间的间隔都相等</span><br><span class="line">// space-around: 每个项目两侧的间隔相等，所以项目之间的间隔比项目与边框的间隔大一倍</span><br><span class="line">justify-content: flex-start(默认值)|flex-end|center|space-between|space-around;</span><br><span class="line">// 定义了项目在侧轴上的对齐方式。</span><br><span class="line">// flex-start: 侧轴起点对齐（所有项目上沿紧靠上边框）</span><br><span class="line">// flex-end: 侧轴终点对齐（所有项目下沿紧靠下边框）</span><br><span class="line">// center: 居中</span><br><span class="line">// baseline: 以所有项目的第一行文字作为基线对齐</span><br><span class="line">// stretch: 如果项目未设置高度或者设置为auto,则将占满整个容器的高度</span><br><span class="line">align-items: flex-start|flex-end|center|baseline|stretch(默认值);</span><br><span class="line">// 定义了多跟轴线的对齐方式。如果项目只有一根轴线，则该属性不起作用。</span><br><span class="line">// flex-start: 与侧轴的起点对齐，最上面一根轴线紧靠上边框</span><br><span class="line">// flex-end: 与侧轴的终点对齐，最下面一根轴线紧靠下边框</span><br><span class="line">// center: 与侧轴的中点对齐</span><br><span class="line">// space-between: 与侧轴两端对齐，轴线之间间隔均分</span><br><span class="line">// space-around: 每根轴线两侧间隔都相等，所以，轴线之间的间隔比轴线与边框的间隔大一倍。</span><br><span class="line">// stretch: 轴线占满整个交叉轴</span><br><span class="line">align-content: flex-start|flex-end|center|space-between|space-around|stretch(默认)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="项目的属性"><a href="#项目的属性" class="headerlink" title="项目的属性"></a>项目的属性</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">// 定义了项目的排列顺序，数值越小，排列越靠前，默认为0</span><br><span class="line">order: &lt;integer&gt;;</span><br><span class="line">// 定义了项目的放大比例，默认0，即如果存在剩余空间，也不放大</span><br><span class="line">// 如果所有项目的flex-grow的属性都为1，则他们将等分剩余空间（如果有的话）。</span><br><span class="line">// 如果一个项目的flex-grow的属性都为2，其他项目都为1，则前者占据的剩余空间将比其他项目多1倍。</span><br><span class="line">flex-grow: &lt;number&gt;;</span><br><span class="line">// 定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小</span><br><span class="line">// 如果所有项目的flex-shrink都为1，则当空间不足时，都将等比例缩小。</span><br><span class="line">// 如果一个项目的flex-shrink属性为0，其他项目都为1，则空间不足时，前者不缩小。</span><br><span class="line">flex-shrink: &lt;number&gt;; // 默认 1</span><br><span class="line">// 定义了项目的宽度，如果同时定义了width, width属性无效，默认值是auto。</span><br><span class="line">// 默认为auto时，width还是有效的。</span><br><span class="line">flex-basic: &lt;length&gt; | auto;</span><br><span class="line">// 是flex-grow,flex-shrink,flex-basis的简写，默认值是0 1 auto。后两个属性可选。</span><br><span class="line">// 建议优化使用这个属性，而不是单独写三个分离的属性，因为浏览器会推断相关值</span><br><span class="line">// 该属性有两个快捷值：auto(1 1 auto) 和 none(0 0 auto)</span><br><span class="line">flex: number | [&lt;flex-grow&gt; &lt;flex-shrink&gt;? || &lt;flex-basis&gt;]；</span><br><span class="line">// 该属性允许定义单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto,表示继承父元素的align-items属性。</span><br><span class="line">align-self: auto | flex-start | flex-end | center | baseline | stretch;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>关于 flex 的几点理解：</p>
+<ol>
+<li>容器设为 flex 后，项目可以设置宽高，无论项目是否是行内元素还是块级元素</li>
+<li>flex-basis 针对于主轴上的宽或者高，如果设置了值，则主轴对应的宽和高设置会失效</li>
+<li>主轴是水平方向时，项目如果设置了高度，则容器设置 align-items: stretch 也不会生效；反之主轴是垂直方向也是类似的，项目如果设置了宽度，则容器设置了 align-items:stretch 也不会生效。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://chenweiyi.github.io/2022/05/27/css%E7%9C%8B%E8%BF%99%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86/" data-id="cl4013q5q000hfcv37s5n5vuu" data-title="css看这篇就够了" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-上一篇的姊妹篇-谈谈对象的offsetX-clientX-pageX-screenX-layerX-x的区别" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/11/14/%E4%B8%8A%E4%B8%80%E7%AF%87%E7%9A%84%E5%A7%8A%E5%A6%B9%E7%AF%87-%E8%B0%88%E8%B0%88%E5%AF%B9%E8%B1%A1%E7%9A%84offsetX-clientX-pageX-screenX-layerX-x%E7%9A%84%E5%8C%BA%E5%88%AB/" class="article-date">
+  <time class="dt-published" datetime="2018-11-14T14:03:22.000Z" itemprop="datePublished">2018-11-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2018/11/14/%E4%B8%8A%E4%B8%80%E7%AF%87%E7%9A%84%E5%A7%8A%E5%A6%B9%E7%AF%87-%E8%B0%88%E8%B0%88%E5%AF%B9%E8%B1%A1%E7%9A%84offsetX-clientX-pageX-screenX-layerX-x%E7%9A%84%E5%8C%BA%E5%88%AB/">上一篇的姊妹篇-谈谈对象的offsetX,clientX,pageX,screenX,layerX,x的区别</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>今天来讲一下offsetX,clientX,pageX,screenX,layerX,x的区别，以及在chrome,firefox,edge浏览器中的相同和不同点</p>
+<p>下面先上一段代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><span class="line">&lt;!<span class="variable constant_">DOCTYPE</span> html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">  &lt;title&gt;offsetX,clientX,pageX,screenX,layerX,x&lt;/title&gt;</span><br><span class="line">  &lt;style&gt;</span><br><span class="line">    body &#123;</span><br><span class="line">      height: 1600px;</span><br><span class="line">      margin: 20px;</span><br><span class="line">      padding: 20px;</span><br><span class="line">      border: 20px solid #f38;</span><br><span class="line">      background: #ccc;</span><br><span class="line">      overflow: auto;</span><br><span class="line">    &#125;</span><br><span class="line">    .main &#123;</span><br><span class="line">      width: 400px;</span><br><span class="line">      height: 330px;</span><br><span class="line">      position: relative;</span><br><span class="line">      margin: 250px auto 0;</span><br><span class="line">      background: #eee;</span><br><span class="line">      overflow: auto;</span><br><span class="line">      border: 10px solid #f38;</span><br><span class="line">    &#125;</span><br><span class="line">    .box &#123;</span><br><span class="line">      width: 220px;</span><br><span class="line">      height: 420px;</span><br><span class="line">      position: absolute;</span><br><span class="line">      left: 50px;</span><br><span class="line">      top: 50px;</span><br><span class="line">      background: orange;</span><br><span class="line">      margin: 20px;</span><br><span class="line">      padding: 20px;</span><br><span class="line">      border: 10px solid #ccc;</span><br><span class="line">    &#125;</span><br><span class="line">    .show &#123;</span><br><span class="line">      position: fixed;</span><br><span class="line">      right: 10px;</span><br><span class="line">      top: 10px;</span><br><span class="line">    &#125;</span><br><span class="line">    .show &gt; label,</span><br><span class="line">    .show &gt; span &#123;</span><br><span class="line">      display: table-cell;</span><br><span class="line">    &#125;</span><br><span class="line">    .show &gt; label &#123;</span><br><span class="line">      width: 150px;</span><br><span class="line">      text-align: right;</span><br><span class="line">      padding-right: 10px;</span><br><span class="line">    &#125;</span><br><span class="line">    .show &gt; span &#123;</span><br><span class="line">      width: 100px;</span><br><span class="line">      text-align: left;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    .show2 &#123;</span><br><span class="line">      top: 270px;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;div class=&quot;main&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;box&quot; id=&quot;box&quot;&gt;&lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;show&quot;&gt;</span><br><span class="line">    &lt;label&gt;offsetX:&lt;/label&gt;&lt;span id=&quot;offsetx&quot;&gt;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">    &lt;label&gt;clientX:&lt;/label&gt;&lt;span id=&quot;clientx&quot;&gt;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">    &lt;label&gt;pageX:&lt;/label&gt;&lt;span id=&quot;pagex&quot;&gt;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">    &lt;label&gt;screenX:&lt;/label&gt;&lt;span id=&quot;screenx&quot;&gt;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">    &lt;label&gt;layerX:&lt;/label&gt;&lt;span id=&quot;layerx&quot;&gt;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">    &lt;label&gt;x:&lt;/label&gt;&lt;span id=&quot;x&quot;&gt;&lt;/span&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">  &lt;div class=&quot;show show2&quot;&gt;</span><br><span class="line">    &lt;label&gt;offsetY:&lt;/label&gt;&lt;span id=&quot;offsety&quot;&gt;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">    &lt;label&gt;clientY:&lt;/label&gt;&lt;span id=&quot;clienty&quot;&gt;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">    &lt;label&gt;pageY:&lt;/label&gt;&lt;span id=&quot;pagey&quot;&gt;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">    &lt;label&gt;screenY:&lt;/label&gt;&lt;span id=&quot;screeny&quot;&gt;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">    &lt;label&gt;layerY:&lt;/label&gt;&lt;span id=&quot;layery&quot;&gt;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">    &lt;label&gt;y:&lt;/label&gt;&lt;span id=&quot;y&quot;&gt;&lt;/span&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">  &lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    var $id = function (id) &#123;</span><br><span class="line">      return document.getElementById(id)</span><br><span class="line">    &#125;</span><br><span class="line">    window.onload = function () &#123;</span><br><span class="line">      $id(&#x27;box&#x27;).onmousedown = function (event) &#123;</span><br><span class="line">        var e = event || window.event</span><br><span class="line">        $id(&#x27;offsetx&#x27;).innerText = e.offsetX</span><br><span class="line">        $id(&#x27;clientx&#x27;).innerText = e.clientX</span><br><span class="line">        $id(&#x27;pagex&#x27;).innerText = e.pageX</span><br><span class="line">        $id(&#x27;screenx&#x27;).innerText = e.screenX</span><br><span class="line">        $id(&#x27;layerx&#x27;).innerText = e.layerX</span><br><span class="line">        $id(&#x27;x&#x27;).innerText = e.x</span><br><span class="line"></span><br><span class="line">        $id(&#x27;offsety&#x27;).innerText = e.offsetY</span><br><span class="line">        $id(&#x27;clienty&#x27;).innerText = e.clientY</span><br><span class="line">        $id(&#x27;pagey&#x27;).innerText = e.pageY</span><br><span class="line">        $id(&#x27;screeny&#x27;).innerText = e.screenY</span><br><span class="line">        $id(&#x27;layery&#x27;).innerText = e.layerY</span><br><span class="line">        $id(&#x27;y&#x27;).innerText = e.y</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="分析结果"><a href="#分析结果" class="headerlink" title="分析结果"></a>分析结果</h3><p>Chrome</p>
+<p>offsetX — 点击位置相对padding左上角的距离，因此如果存在border，点击在border上为负值，点击在padding内为正值<br>clientX — 相对于浏览器左侧可视区域的距离<br>pageX — 相对于浏览器左侧页面的滚动距离 &#x3D; clientX + 滚动条滚动距离， 因此在没有滚动条的情况下等于clientX，有滚动条的时候也可能大于screenX<br>screenX — 相对于显示屏左侧的距离<br>layerX — 点击位置相对于border左上角的距离，因此如果存在border，其值等于offsetX + border-left<br>x — 等于clientX </p>
+<p>Firefox</p>
+<p>offsetX — 与chrome一致<br>clientX — 与chrome一致<br>pageX — 与chrome一致<br>screenX — 与chrome一致<br>layerX — 与chrome一致<br>x — 与chrome一致 </p>
+<p>Edge</p>
+<p>offsetX — 与chrome一致<br>clientX — 与chrome一致<br>pageX — 与chrome一致<br>screenX — 与chrome一致<br>layerX — 这个值与chrome和firefox行为不一致，其值相对于父容器的border左上角的距离<br>x — 与chrome一致</p>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>没有scrollX，scrollY属性</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://chenweiyi.github.io/2018/11/14/%E4%B8%8A%E4%B8%80%E7%AF%87%E7%9A%84%E5%A7%8A%E5%A6%B9%E7%AF%87-%E8%B0%88%E8%B0%88%E5%AF%B9%E8%B1%A1%E7%9A%84offsetX-clientX-pageX-screenX-layerX-x%E7%9A%84%E5%8C%BA%E5%88%AB/" data-id="cl4013q5o000ffcv34w1kbg4t" data-title="上一篇的姊妹篇-谈谈对象的offsetX,clientX,pageX,screenX,layerX,x的区别" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-谈谈clientXXX-offsetXXX-scrollXXX的用法" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/11/06/%E8%B0%88%E8%B0%88clientXXX-offsetXXX-scrollXXX%E7%9A%84%E7%94%A8%E6%B3%95/" class="article-date">
+  <time class="dt-published" datetime="2018-11-06T12:44:28.000Z" itemprop="datePublished">2018-11-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E8%B4%B4/">技术贴</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2018/11/06/%E8%B0%88%E8%B0%88clientXXX-offsetXXX-scrollXXX%E7%9A%84%E7%94%A8%E6%B3%95/">谈谈clientXXX, offsetXXX, scrollXXX的用法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>今天我想来探索一下几个经常搞混淆的概念，比如：</p>
+<ol>
+<li><p><code>clientWidth</code>, <code>offsetWidth</code>, <code>scrollWidth</code>有什么区别？</p>
+</li>
+<li><p><code>clientHeight</code>, <code>offsetHeight</code>, <code>scrollHeight</code>有什么区别？</p>
+</li>
+<li><p><code>clientTop</code>, <code>offsetTop</code>, <code>scrollTop</code>有什么区别？</p>
+</li>
+<li><p><code>clientLeft</code>, <code>offsetLeft</code>, <code>scrollLeft</code>有什么区别？ </p>
+</li>
+<li><p>上面这些属性和<code>style.width</code>, <code>style.height</code>, <code>style.left</code>, <code>style.top</code>有什么区别？</p>
+</li>
+<li><p><code>div.clientXXX</code> 和 <code>document.body.clientXXX</code> 有没有区别？</p>
+</li>
+<li><p>不同浏览器之间有没有什么不同？（主要是chrome，firefox，Edge）</p>
+</li>
+</ol>
+<p>要解答以上问题，最直接的方式是写一个demo测试一下，下面放出测试代码。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br></pre></td><td class="code"><pre><span class="line">&lt;!<span class="variable constant_">DOCTYPE</span> html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">  &lt;title&gt;clientTop, offsetTop, srcollTop各属性介绍&lt;/title&gt;</span><br><span class="line">  &lt;style type=&quot;text/css&quot;&gt;</span><br><span class="line">    html, body &#123;</span><br><span class="line">      /*width: 100%;</span><br><span class="line">      height: 100%;*/</span><br><span class="line">    &#125;</span><br><span class="line">    html &#123;</span><br><span class="line">      margin: 0px;</span><br><span class="line">      padding: 0px;</span><br><span class="line">    &#125;</span><br><span class="line">    body &#123;</span><br><span class="line">      border: 10px solid #cc9999;</span><br><span class="line">      padding: 10px;</span><br><span class="line">      margin: 10px;</span><br><span class="line">      background-color: #ffffcc;</span><br><span class="line">    &#125;</span><br><span class="line">    .wrap &#123;</span><br><span class="line">      position: relative;</span><br><span class="line">      margin: 10px;</span><br><span class="line">      padding: 10px;</span><br><span class="line">      border: 10px solid #333399;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    .div &#123;</span><br><span class="line">      position: relative;</span><br><span class="line">      width: 300px;</span><br><span class="line">      height: 200px;</span><br><span class="line">      overflow: auto;</span><br><span class="line">      top: 20px;</span><br><span class="line">      left: 20px;</span><br><span class="line">      border: 10px solid #ff6666;</span><br><span class="line">      margin: 10px;</span><br><span class="line">      padding: 10px;</span><br><span class="line">      background-color: #ccffff;</span><br><span class="line">      /*box-sizing: border-box;*/</span><br><span class="line">    &#125;</span><br><span class="line">    .div &gt; pre,</span><br><span class="line">    .div &gt; p &#123;</span><br><span class="line">      margin: 0px;</span><br><span class="line">    &#125;</span><br><span class="line">    .divide &#123;</span><br><span class="line">      margin-top: 50px;</span><br><span class="line">      margin-bottom: 20px;</span><br><span class="line">    &#125;</span><br><span class="line">    .divide &gt; div &#123;</span><br><span class="line">      width: 90%;</span><br><span class="line">      height: 1px;</span><br><span class="line">      border: 0px;</span><br><span class="line">      margin: 0 auto;</span><br><span class="line">      border-bottom: 1px dashed #555;</span><br><span class="line">    &#125;</span><br><span class="line">    .result &#123;</span><br><span class="line">      display: inline-block;</span><br><span class="line">      width: 400px;</span><br><span class="line">      vertical-align: top;</span><br><span class="line">    &#125;</span><br><span class="line">  &lt;/style&gt;</span><br><span class="line">  &lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    var $$ = function (id) &#123;</span><br><span class="line">      return document.querySelector(&#x27;#&#x27; + id)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    var calc = function () &#123;</span><br><span class="line">      var body = document.body</span><br><span class="line">      // ----------------------  body  --------------------------</span><br><span class="line">      $$(&#x27;bodyClientWidth&#x27;).innerText = body.clientWidth</span><br><span class="line">      $$(&#x27;bodyOffsetWidth&#x27;).innerText = body.offsetWidth</span><br><span class="line">      $$(&#x27;bodyScrollWidth&#x27;).innerText = body.scrollWidth</span><br><span class="line"></span><br><span class="line">      $$(&#x27;bodyClientHeight&#x27;).innerText = body.clientHeight</span><br><span class="line">      $$(&#x27;bodyOffsetHeight&#x27;).innerText = body.offsetHeight</span><br><span class="line">      $$(&#x27;bodyScrollHeight&#x27;).innerText = body.scrollHeight</span><br><span class="line"></span><br><span class="line">      $$(&#x27;bodyStyleTop&#x27;).innerText = body.style.top      // 必须定义在行内样式中，否则取不到这个值</span><br><span class="line">      $$(&#x27;bodyStyleLeft&#x27;).innerText = body.style.left    // 必须定义在行内样式中，否则取不到这个值</span><br><span class="line"></span><br><span class="line">      $$(&#x27;bodyClientLeft&#x27;).innerText = body.clientLeft</span><br><span class="line">      $$(&#x27;bodyClientTop&#x27;).innerText = body.clientTop</span><br><span class="line"></span><br><span class="line">      $$(&#x27;bodyOffsetLeft&#x27;).innerText = body.offsetLeft</span><br><span class="line">      $$(&#x27;bodyOffsetTop&#x27;).innerText = body.offsetTop</span><br><span class="line"></span><br><span class="line">      $$(&#x27;bodyScrollLeft&#x27;).innerText = body.scrollLeft</span><br><span class="line">      $$(&#x27;bodyScrollTop&#x27;).innerText = body.scrollTop</span><br><span class="line"></span><br><span class="line">      $$(&#x27;bodyStylePadding&#x27;).innerText = body.style.padding      // 必须定义在行内样式中，否则取不到这个值</span><br><span class="line">      $$(&#x27;bodyStyleMargin&#x27;).innerText = body.style.margin        // 必须定义在行内样式中，否则取不到这个值</span><br><span class="line">      $$(&#x27;bodyStyleWidth&#x27;).innerText = body.style.width          // 必须定义在行内样式中，否则取不到这个值</span><br><span class="line">      $$(&#x27;bodyStyleHeight&#x27;).innerText = body.style.height        // 必须定义在行内样式中，否则取不到这个值</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">      // -------------------    div    --------------------------</span><br><span class="line">      $$(&#x27;clientWidth&#x27;).innerText = $$(&#x27;div&#x27;).clientWidth       // Chrome: 内容可视宽度，值不等于style.width，包括内容区域和padding,不包括border; Firefox: 和chrome一致</span><br><span class="line">      $$(&#x27;offsetWidth&#x27;).innerText = $$(&#x27;div&#x27;).offsetWidth       // Chrome: 在clientWidth的基础上 + border水平宽度；firefox和chrome一致</span><br><span class="line">      $$(&#x27;scrollWidth&#x27;).innerText = $$(&#x27;div&#x27;).scrollWidth       // Chrome: 整个滚动内容区宽度 = 内容可视宽度 + scrollLeft(滚动条滑到最右边时); Firefox: 和chrome一致</span><br><span class="line">      $ &amp;&amp; $(&#x27;#jqWidth&#x27;).text($(&#x27;#div&#x27;).width())                // 值是数值，等于style.width的值，    </span><br><span class="line">      $ &amp;&amp; $(&#x27;#jqOuterWidth&#x27;).text($(&#x27;#div&#x27;).outerWidth())      // 值是数值，等于div.offsetWidth的值</span><br><span class="line"></span><br><span class="line">      $$(&#x27;clientHeight&#x27;).innerText = $$(&#x27;div&#x27;).clientHeight     // Chrome: 内容可视高度，值不等于style.height，包括内容区域和padding,不包括border; Firefox: 和chrome一致</span><br><span class="line">      $$(&#x27;offsetHeight&#x27;).innerText = $$(&#x27;div&#x27;).offsetHeight     // Chrome: 在clientHeight的基础上 + border水平高度；firefox和chrome一致</span><br><span class="line">      $$(&#x27;scrollHeight&#x27;).innerText = $$(&#x27;div&#x27;).scrollHeight     // Chrome: 整个滚动内容区宽度 = 内容可视高度 + scrollTop(滚动条滑到最底部时); Firefox: 和chrome一致</span><br><span class="line">      $ &amp;&amp; $(&#x27;#jqHeight&#x27;).text($(&#x27;#div&#x27;).height())              // 值是数值，等于style.height的值， </span><br><span class="line">      $ &amp;&amp; $(&#x27;#jqOuterHeight&#x27;).text($(&#x27;#div&#x27;).outerHeight())    // 值是数值，等于div.offsetHeight的值</span><br><span class="line"></span><br><span class="line">      $$(&#x27;styleTop&#x27;).innerText = $$(&#x27;div&#x27;).style.top            // 必须定义在行内样式中，否则取不到这个值</span><br><span class="line">      $$(&#x27;styleLeft&#x27;).innerText = $$(&#x27;div&#x27;).style.left          // 必须定义在行内样式中，否则取不到这个值</span><br><span class="line"></span><br><span class="line">      $$(&#x27;clientLeft&#x27;).innerText = $$(&#x27;div&#x27;).clientLeft         // Chrome: 左侧border宽度； Firefox: 和chrome一致</span><br><span class="line">      $$(&#x27;clientTop&#x27;).innerText = $$(&#x27;div&#x27;).clientTop           // Chrome: 上侧border宽度； Firefox: 和chrome一致</span><br><span class="line">      // 与当前节点的offsetParent有关</span><br><span class="line">      // Chrome: 当offsetParent 为 Body 时，此时值为 :</span><br><span class="line">      // Body的margin + border + padding + 当前节点的margin + left(当前节点如果定位了包括relative, absolute，否则，不需要这个值)</span><br><span class="line">      // 当offsetParent 为其它元素时，以这个元素为基准，此时值为：</span><br><span class="line">      // 当前offsetParent元素的padding + 当前节点的margin + left(当前节点如果定位了包括relative, absolute，否则，不需要这个值)</span><br><span class="line">      // Firefox: 当offsetPrent 为 Body 时，去掉Body的border，其它和Chrome一样</span><br><span class="line">      // 当offsetParent为其它元素时，和chrome行为一致</span><br><span class="line">      $$(&#x27;offsetLeft&#x27;).innerText = $$(&#x27;div&#x27;).offsetLeft</span><br><span class="line">      // 与offsetLeft算法一致，只不过需要把对应的left换成top         </span><br><span class="line">      $$(&#x27;offsetTop&#x27;).innerText = $$(&#x27;div&#x27;).offsetTop</span><br><span class="line"></span><br><span class="line">      // 当元素作为容器时，随着滚动条移动值不断变化，chrome和firefox行为一致</span><br><span class="line">      // scrollLeft 表示滚动条右移时，表示右移动值，单位像素</span><br><span class="line">      // scrollLeft 和 scrollTop 是可写的</span><br><span class="line">      $$(&#x27;scrollLeft&#x27;).innerText = $$(&#x27;div&#x27;).scrollLeft</span><br><span class="line">      // scrollTop 表示滚动条下移时，表示下移动值，单位像素</span><br><span class="line">      $$(&#x27;scrollTop&#x27;).innerText = $$(&#x27;div&#x27;).scrollTop</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">      $$(&#x27;stylePadding&#x27;).innerText = $$(&#x27;div&#x27;).style.padding      // 必须定义在行内样式中，否则取不到这个值</span><br><span class="line">      $$(&#x27;styleMargin&#x27;).innerText = $$(&#x27;div&#x27;).style.margin        // 必须定义在行内样式中，否则取不到这个值</span><br><span class="line">      $$(&#x27;styleWidth&#x27;).innerText = $$(&#x27;div&#x27;).style.width          // 必须定义在行内样式中，否则取不到这个值</span><br><span class="line">      $$(&#x27;styleHeight&#x27;).innerText = $$(&#x27;div&#x27;).style.height        // 必须定义在行内样式中，否则取不到这个值</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    var getOffsetParent = function (id) &#123;</span><br><span class="line">      var offsetParent = $$(id).offsetParent</span><br><span class="line">      console.log(`offsetParent.tagName: $$&#123;offsetParent.tagName&#125;`)</span><br><span class="line">    &#125;</span><br><span class="line">  &lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body onscroll=&quot;calc()&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;wrap&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;div&quot; id=&quot;div&quot; onscroll=&quot;calc()&quot;&gt;</span><br><span class="line">      &lt;p&gt;sdfsdfsadfsadfa&lt;br&gt;sdfasdfasdfasdf&lt;br&gt;sdfsdfsdfasdfsdfsdffffffffffffdsfasdfsadfsadfsdfsdfsadfsadfsadfsdfsd&lt;br&gt;ffffff士大夫撒旦法师fff&lt;br&gt;fffffff&lt;br&gt;ffffffffff&lt;br&gt;ffffsadf&lt;br&gt;sadfasdfsd&lt;br&gt;fsadsfa&lt;br&gt;sdfasdfasdf&lt;br&gt;asdfas&lt;br&gt;dfas&lt;br&gt;dfasdfsadfsd&lt;br&gt;afasdf&lt;br&gt;sadfsafsadf&lt;/p&gt;</span><br><span class="line">      </span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;divide&quot;&gt;</span><br><span class="line">      &lt;div&gt;&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;result&quot;&gt;</span><br><span class="line">      &lt;h2&gt;body&lt;/h2&gt;</span><br><span class="line">      &lt;!-- xxxWidth --&gt;</span><br><span class="line">      &lt;code&gt;body.clientWidth&lt;/code&gt;: &lt;span id=&quot;bodyClientWidth&quot;&gt;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">      &lt;code&gt;body.offsetWidth&lt;/code&gt;: &lt;span id=&quot;bodyOffsetWidth&quot;&gt;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">      &lt;code&gt;body.scrollWidth&lt;/code&gt;: &lt;span id=&quot;bodyScrollWidth&quot;&gt;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">      &lt;br&gt;</span><br><span class="line">      &lt;!-- xxxHeight --&gt;</span><br><span class="line">      &lt;code&gt;body.clientHeight&lt;/code&gt;: &lt;span id=&quot;bodyClientHeight&quot;&gt;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">      &lt;code&gt;body.offsetHeight&lt;/code&gt;: &lt;span id=&quot;bodyOffsetHeight&quot;&gt;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">      &lt;code&gt;body.scrollHeight&lt;/code&gt;: &lt;span id=&quot;bodyScrollHeight&quot;&gt;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">      &lt;br&gt;  </span><br><span class="line">      &lt;!-- left, top --&gt;</span><br><span class="line">      &lt;code&gt;body.style.top&lt;/code&gt;: &lt;span id=&quot;bodyStyleTop&quot;&gt;&lt;/span&gt;&lt;br&gt; </span><br><span class="line">      &lt;code&gt;body.style.left&lt;/code&gt;: &lt;span id=&quot;bodyStyleLeft&quot;&gt;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">      &lt;br&gt;</span><br><span class="line">      &lt;!-- padding, margin, border, width, height --&gt;</span><br><span class="line">      &lt;code&gt;body.style.padding&lt;/code&gt;: &lt;span id=&quot;bodyStylePadding&quot;&gt;&lt;/span&gt;&lt;br&gt; </span><br><span class="line">      &lt;code&gt;body.style.margin&lt;/code&gt;: &lt;span id=&quot;bodyStyleMargin&quot;&gt;&lt;/span&gt;&lt;br&gt; </span><br><span class="line">      &lt;code&gt;body.style.width&lt;/code&gt;: &lt;span id=&quot;bodyStyleWidth&quot;&gt;&lt;/span&gt;&lt;br&gt; </span><br><span class="line">      &lt;code&gt;body.style.height&lt;/code&gt;: &lt;span id=&quot;bodyStyleHeight&quot;&gt;&lt;/span&gt;&lt;br&gt; </span><br><span class="line">      &lt;br&gt;</span><br><span class="line">      &lt;!-- xxxLeft, xxxTop --&gt;</span><br><span class="line">      &lt;code&gt;body.clientLeft&lt;/code&gt;: &lt;span id=&quot;bodyClientLeft&quot;&gt;&lt;/span&gt;&lt;br&gt; </span><br><span class="line">      &lt;code&gt;body.clientTop&lt;/code&gt;: &lt;span id=&quot;bodyClientTop&quot;&gt;&lt;/span&gt;&lt;br&gt; </span><br><span class="line">      &lt;code&gt;body.offsetLeft&lt;/code&gt;: &lt;span id=&quot;bodyOffsetLeft&quot;&gt;&lt;/span&gt;&lt;br&gt; </span><br><span class="line">      &lt;code&gt;body.offsetTop&lt;/code&gt;: &lt;span id=&quot;bodyOffsetTop&quot;&gt;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">      &lt;code&gt;body.scrollLeft&lt;/code&gt;: &lt;span id=&quot;bodyScrollLeft&quot;&gt;&lt;/span&gt;&lt;br&gt; </span><br><span class="line">      &lt;code&gt;body.scrollTop&lt;/code&gt;: &lt;span id=&quot;bodyScrollTop&quot;&gt;&lt;/span&gt;&lt;br&gt; </span><br><span class="line">      &lt;br&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;result&quot;&gt;</span><br><span class="line">      &lt;h2&gt;div&lt;/h2&gt;</span><br><span class="line">      &lt;!-- xxxWidth --&gt;</span><br><span class="line">      &lt;code&gt;div.clientWidth&lt;/code&gt;: &lt;span id=&quot;clientWidth&quot;&gt;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">      &lt;code&gt;div.offsetWidth&lt;/code&gt;: &lt;span id=&quot;offsetWidth&quot;&gt;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">      &lt;code&gt;div.scrollWidth&lt;/code&gt;: &lt;span id=&quot;scrollWidth&quot;&gt;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">      &lt;code&gt;jQuery width&lt;/code&gt;: &lt;span id=&quot;jqWidth&quot;&gt;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">      &lt;code&gt;jQuery outerWidth&lt;/code&gt;: &lt;span id=&quot;jqOuterWidth&quot;&gt;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">      &lt;br&gt;</span><br><span class="line">      &lt;!-- xxxHeight --&gt;</span><br><span class="line">      &lt;code&gt;div.clientHeight&lt;/code&gt;: &lt;span id=&quot;clientHeight&quot;&gt;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">      &lt;code&gt;div.offsetHeight&lt;/code&gt;: &lt;span id=&quot;offsetHeight&quot;&gt;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">      &lt;code&gt;div.scrollHeight&lt;/code&gt;: &lt;span id=&quot;scrollHeight&quot;&gt;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">      &lt;code&gt;jQuery height&lt;/code&gt;: &lt;span id=&quot;jqHeight&quot;&gt;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">      &lt;code&gt;jQuery outerHeight&lt;/code&gt;: &lt;span id=&quot;jqOuterHeight&quot;&gt;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">      &lt;br&gt;  </span><br><span class="line">      &lt;!-- left, top --&gt;</span><br><span class="line">      &lt;code&gt;div.style.top&lt;/code&gt;: &lt;span id=&quot;styleTop&quot;&gt;&lt;/span&gt;&lt;br&gt; </span><br><span class="line">      &lt;code&gt;div.style.left&lt;/code&gt;: &lt;span id=&quot;styleLeft&quot;&gt;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">      &lt;br&gt;</span><br><span class="line">      &lt;!-- padding, margin, border, width, height --&gt;</span><br><span class="line">      &lt;code&gt;div.style.padding&lt;/code&gt;: &lt;span id=&quot;stylePadding&quot;&gt;&lt;/span&gt;&lt;br&gt; </span><br><span class="line">      &lt;code&gt;div.style.margin&lt;/code&gt;: &lt;span id=&quot;styleMargin&quot;&gt;&lt;/span&gt;&lt;br&gt; </span><br><span class="line">      &lt;code&gt;div.style.width&lt;/code&gt;: &lt;span id=&quot;styleWidth&quot;&gt;&lt;/span&gt;&lt;br&gt; </span><br><span class="line">      &lt;code&gt;div.style.height&lt;/code&gt;: &lt;span id=&quot;styleHeight&quot;&gt;&lt;/span&gt;&lt;br&gt; </span><br><span class="line">      &lt;br&gt;</span><br><span class="line">      &lt;!-- xxxLeft, xxxTop --&gt;</span><br><span class="line">      &lt;code&gt;div.clientLeft&lt;/code&gt;: &lt;span id=&quot;clientLeft&quot;&gt;&lt;/span&gt;&lt;br&gt; </span><br><span class="line">      &lt;code&gt;div.clientTop&lt;/code&gt;: &lt;span id=&quot;clientTop&quot;&gt;&lt;/span&gt;&lt;br&gt; </span><br><span class="line">      &lt;code&gt;div.offsetLeft&lt;/code&gt;: &lt;span id=&quot;offsetLeft&quot;&gt;&lt;/span&gt;&lt;br&gt; </span><br><span class="line">      &lt;code&gt;div.offsetTop&lt;/code&gt;: &lt;span id=&quot;offsetTop&quot;&gt;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">      &lt;code&gt;div.scrollLeft&lt;/code&gt;: &lt;span id=&quot;scrollLeft&quot;&gt;&lt;/span&gt;&lt;br&gt; </span><br><span class="line">      &lt;code&gt;div.scrollTop&lt;/code&gt;: &lt;span id=&quot;scrollTop&quot;&gt;&lt;/span&gt;&lt;br&gt; </span><br><span class="line">      &lt;br&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">  &lt;script src=&quot;http://code.jquery.com/jquery-2.1.1.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">  &lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    window.onload = function () &#123;</span><br><span class="line">      calc()</span><br><span class="line">      getOffsetParent(&#x27;div&#x27;)</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">  &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="额外说明"><a href="#额外说明" class="headerlink" title="额外说明"></a>额外说明</h3><ol>
+<li><p>在所在容器的css属性是<code>box-sizing: content-box(默认)</code> 时，<code>style.width</code>实际上是：实际内容宽度 + 浏览器默认滚动条宽度（在chrome和firefox上测试了都等于17px），而<code>clientWidth</code>这时等于&#x3D; 实际内容（style.width - 浏览器滚动条默认宽度） + padding(即paddingLeft + paddingRight)，不包括滚动条宽度，因此此时<code>clientWidth != style.width</code>;在所在容器的css属性是<code>box-sizing: border-box</code>时，这时<code>style.width</code>等于<code>offsetWidth</code>，即实际内容宽度 + padding + border，而这时<code>clientWidth</code>等于 &#x3D; 实际内容 + padding，但是这时实际内容时多少呢？实际内容等于 &#x3D; （style.width - border - padding - 浏览器滚动条默认宽度）</p>
+</li>
+<li><p>在css属性是<code>box-sizing:content-box(默认)</code>时，<code>jquery.width() = style.width , jquery.outerWidth() = dom.offsetWidth</code> ; 在css属性是<code>box-sizing:border-box</code>时，<code>jquery.width() = style.width - border - padding , jquery.outerWidth() = dom.offsetWidth</code></p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://chenweiyi.github.io/2018/11/06/%E8%B0%88%E8%B0%88clientXXX-offsetXXX-scrollXXX%E7%9A%84%E7%94%A8%E6%B3%95/" data-id="cl4013q5m000bfcv37uog2cjc" data-title="谈谈clientXXX, offsetXXX, scrollXXX的用法" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/" rel="tag">html</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-wordpress优化" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2017/12/09/wordpress%E4%BC%98%E5%8C%96/" class="article-date">
+  <time class="dt-published" datetime="2017-12-09T10:31:42.000Z" itemprop="datePublished">2017-12-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E8%B4%B4/">技术贴</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2017/12/09/wordpress%E4%BC%98%E5%8C%96/">wordpress优化</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>wordpress优化主要从下面几个方面着手：</p>
+<ol>
+<li>wordpress头像。它自带的头像服务国内用户访问受限，因此需要一款安装插件解决这个问题：<code>wp-user-avatar</code></li>
+<li>wordpress字体。自带访问google字体，由于国内被墙因此会造成很大的阻塞，影响访问速度。下载一款插件解决吧：<code>Disable Google fonts</code>；也可以通过代码设置的方式解决，参见<a target="_blank" rel="noopener" href="https://www.xiaoz.me/archives/3335">这篇文章</a></li>
+<li>wordpress启用用户注册功能。 需要安装一款smtp的插件：<code>easy-wp-smtp</code>。安装完启用，设置配置项即可。需要注意的是：SMTP username是邮箱服务器的登陆名，SMTP password是<strong>开启smtp的授权码而不是你邮箱的登录密码</strong></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://chenweiyi.github.io/2017/12/09/wordpress%E4%BC%98%E5%8C%96/" data-id="cl4013q5k000afcv31ambdsfp" data-title="wordpress优化" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wordpress/" rel="tag">wordpress</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-wordpress安装配置" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2017/11/26/wordpress%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/" class="article-date">
+  <time class="dt-published" datetime="2017-11-26T09:23:04.000Z" itemprop="datePublished">2017-11-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E8%B4%B4/">技术贴</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2017/11/26/wordpress%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/">wordpress安装配置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>今天记一下我自己使用wordpress建站的过程中遇到的一些问题。</p>
+<ol>
+<li><p>首先下载wordpress，然后解压到wamp的www目录中，在浏览器中输入localhost&#x2F;wordpress&#x2F;进入wordpress安装</p>
+</li>
+<li><p>首先填写需要的数据库名称（事先在phpmyadmin中建一个数据库），数据库登陆名（默认root），数据库密码（默认为空），等等。</p>
+</li>
+<li><p>成功后，填写网站名称，管理员名称，密码，电子邮箱</p>
+</li>
+<li><p>安装成功后，在localhost&#x2F;wordpress&#x2F;wp-admin.php地址下登陆管理员用户名，密码，进入前后端预览界面。</p>
+</li>
+<li><p>设置头像。这里我们使用一款插件:wp-user-avatar。就要用到wordpress下载插件功能了。如果下载插件报错No working transports found，<br>是因为php没有开启curl功能，修改方法：<code>将php.ini中的;extension=php_curl.dll前的分号去掉</code>，修改完成后，重启wamp。</p>
+</li>
+<li><p>插件下载完毕后启用插件，进行需要的设置即可。</p>
+</li>
+<li><p>wordpress默认没有开启用户登录的功能，在设置中勾选<code>允许任何人注册</code>选项。</p>
+</li>
+<li><p>用户注册时，需要填写电子邮箱，然后wordpress会给该用户发送电子邮件来设置密码。所以，作为管理员，需要开启发送电子邮件的功能。这时我们需要下载一款插件：<code>easy-wp-smtp</code>。启用，进入设置。</p>
+</li>
+<li><p>首先我们得启用php的ssl功能：<code>将php.ini中的;extension=php_openssl.dll前的分号去掉</code></p>
+</li>
+<li><p>设置插件填写用户名密码时要注意密码不是你邮箱的登陆密码，而是开启smtp的功能的授权码。不然会报错：<code>535 authentication failed</code></p>
+</li>
+<li><p>填写设置成功后可以测试下，测试成功表明开启成功。</p>
+</li>
+<li><p>用户注册的时候，发送邮件给用户，用户点击邮件后提示“您的密码重设链接无效”，这其实不是wordpress的问题，邮箱收到邮件后，会将密码重置链接地址及其前后的“&lt;&gt;”一起当成链接地址生成超链接，点击此超链接后，由于传给wordpress的参数不对（多了个&gt;），例如把鼠标移到下图的红色框的连接上，并看到浏览器左下角的URL提示连接，会发现多了一个“&gt;”，所以wordpress提示密码重设链接无效。<br>解决这个问题，打开wp根目录下的wp-login.php,找到如下代码:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$message .= <span class="string">&#x27;&lt;&#x27;</span> . <span class="title function_">network_site_url</span>( <span class="string">&quot;wp-login.php?action=rp&amp;key=$key&amp;login=&quot;</span> . <span class="title function_">rawurlencode</span>( $user_login ), <span class="string">&#x27;login&#x27;</span> ) . <span class="string">&quot;&gt;\r\n&quot;</span>;</span><br></pre></td></tr></table></figure>
+<p>修改为：</p>
+<p>$message .&#x3D; network_site_url( “wp-login.php?action&#x3D;rp&amp;key&#x3D;$key&amp;login&#x3D;” . rawurlencode( $user_login ), ‘login’ ) . “\r\n”;</p>
+</li>
+</ol>
+<p>就是把<code>&lt;</code>,<code>&gt;</code>去掉。还要修改wp&#x2F;wp-includes&#x2F;pluggable.php文件：</p>
+<pre><code>$message .= &#39;&lt;&#39; . network_site_url(&quot;wp-login.php?action=rp&amp;key=$key&amp;login=&quot; . rawurlencode($user-&gt;user_login), &#39;login&#39;) . &quot;&gt;\r\n\r\n&quot;;
+</code></pre>
+<p>修改为：</p>
+<pre><code>$message .= network_site_url(&quot;wp-login.php?action=rp&amp;key=$key&amp;login=&quot; . rawurlencode($user-&gt;user_login), &#39;login&#39;) . &quot;\r\n\r\n&quot;;
+</code></pre>
+<p>也是把<code>&lt;</code>,<code>&gt;</code>去掉。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://chenweiyi.github.io/2017/11/26/wordpress%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/" data-id="cl4013q5i0006fcv34pugd50s" data-title="wordpress安装配置" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wampserver/" rel="tag">wampserver</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wordpress/" rel="tag">wordpress</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-wampserver配置" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2017/11/25/wampserver%E9%85%8D%E7%BD%AE/" class="article-date">
+  <time class="dt-published" datetime="2017-11-25T12:43:16.000Z" itemprop="datePublished">2017-11-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E8%B4%B4/">技术贴</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2017/11/25/wampserver%E9%85%8D%E7%BD%AE/">wampserver配置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>** wamp &#x3D; window + apache + mysql + php **</p>
+<ol>
+<li>wamp的默认端口是80,容易和已安装的ISS等其他服务冲突，导致wampserver无法启动，修改httpd.conf文件如下：<br>搜索’80’找到<code>Listen 80</code>和<code>ServerName localhost:80</code>，修改’80’为想要设置的端口重启即可。详细参见<a target="_blank" rel="noopener" href="http://blog.csdn.net/paranoidyang/article/details/54293732">这篇文章</a></li>
+<li>仅仅修改httpd.conf文件可能还不够，还需要修改wamp目录下wampmanager.tpl文件，找到<code>Parameters: “http://localhost/”; Glyph: 5</code>修改为<code>Parameters: “http://localhost:8080/”; Glyph: 5</code>（比如新端口为8080）,详细参见<a target="_blank" rel="noopener" href="http://blog.csdn.net/paranoidyang/article/details/54293732">这篇文章</a></li>
+<li>修改phpmyadmin端口号：方法同2，打开wamp目录下wampmanager.tpl文件，找到<code>Parameters: “http://localhost/phpmyadmin”; Glyph: 5</code>修改为<code>Parameters: “http://localhost:8080/phpmyadmin”; Glyph: 5</code>（比如新端口为8080）,详细参见<a target="_blank" rel="noopener" href="http://blog.csdn.net/paranoidyang/article/details/54293732">这篇文章</a></li>
+<li>如何修改mysql数据库的用户名密码呢？a. 通过WAMP打开mysql控制台；b. 输入<code>use mysql;</code>，意思是使用mysql这个数据库，提示“Database changed”就行；c. 输入要修改的密码的sql语句<code>update user set password=PASSWORD(&#39;hooray&#39;) where user=&#39;root&#39;;</code>; d. 输入<code>flush privileges;</code>; e. 输入<code>quit;</code>退出。详细参见<a target="_blank" rel="noopener" href="http://blog.csdn.net/nczb007/article/details/52593958">这篇文章</a>。做完了这些关闭wampserver,重新打开可能你还是不能进入phpmyadmin,因为你还需要把新密码手动加入到phpmyadmin配置文件中，位置在wamp&#x2F;apps&#x2F;phpadmin&#x2F;config.inc.php,打开配置文件把密码写进去重启wamp就可以了。详细参见<a target="_blank" rel="noopener" href="http://blog.csdn.net/sonnylight/article/details/51900050">这篇文章</a></li>
+<li>wamp安装完成后，等图标变绿后，在浏览器输入<code>127.0.0.1</code>即可进入默认页面，输入localhost呢，如果不可以需要配置<code>httpd.conf</code>文件，如下图：<br><img src="/images/httpd.png" alt="允许all"><br>修改完后，重启wamp，在浏览器中输入localhost应该可以正常访问。访问<code>localhost/phpmyadmin/</code>时依然无法访问，但是访问<code>127.0.0.1/phpmyadmin</code>可以，需要配置wamp目录下的alias目录<code>phpmyadmin.conf</code>文件：<br><img src="/images/phpmyadmin.png" alt="允许all"></li>
+<li>一般情况下，我们把代码和程序分开，wamp默认的www目录在安装程序目录下，所以我们需要自定义www目录。还是修改<code>httpd.conf</code>目录，如下图：<br><img src="/images/httpd2.png" alt="自定义www目录"><br><img src="/images/httpd3.png" alt="自定义www目录"><br>我把目录改为d盘下的www目录，重启后输入localhost，应该可以进入d:&#x2F;www这个目录的<code>index.php</code>文件。但是点击wamp图标的www还是显示默认wamp下面的www目录，因此还需要修改两个文件<code>wamp/wampmanager.ini</code>和<code>wampmanager.tpl</code> ：<br><img src="/images/httpd4.png" alt="自定义www目录"><br><img src="/images/httpd5.png" alt="自定义www目录"><br>关闭wamp，重新打开，在点击www目录，应该就是修改后的目录了。在浏览器地址栏输入localhost也会进入修改后的目录的<code>index.php</code></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://chenweiyi.github.io/2017/11/25/wampserver%E9%85%8D%E7%BD%AE/" data-id="cl4013q5h0005fcv3cver4izu" data-title="wampserver配置" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache/" rel="tag">apache</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/" rel="tag">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wampserver/" rel="tag">wampserver</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-npm知识" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2017/11/25/npm%E7%9F%A5%E8%AF%86/" class="article-date">
+  <time class="dt-published" datetime="2017-11-25T11:57:31.000Z" itemprop="datePublished">2017-11-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E8%B4%B4/">技术贴</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2017/11/25/npm%E7%9F%A5%E8%AF%86/">npm知识</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="设置npm的registry"><a href="#设置npm的registry" class="headerlink" title="设置npm的registry"></a>设置npm的registry</h1><ol>
+<li>国内访问官方registry非常慢，因此选择国内第三方镜像（淘宝镜像，良心）<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+查看是否设置成功：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm get registry</span><br></pre></td></tr></table></figure></li>
+<li>查找全局安装的包<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm ls -g</span><br></pre></td></tr></table></figure>
+或者<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm ls -g --depth 0</span><br></pre></td></tr></table></figure></li>
+<li>理解package.json文件中的<code>~</code>和<code>^</code><br><code>~</code> 表示匹配中间数字，比如：<code>~1.2.3</code>将会匹配所有<code>1.2.x</code>版本，但是不会匹配<code>1.3.0</code><br><code>^</code> 表示匹配第一个数字，比如：<code>^1.2.3</code>将会匹配所有<code>1.x.x</code>版本，但是不会匹配<code>2.0.0</code><br>总结一下：<br><code>~1.2.3</code>: <strong>&gt;&#x3D;</strong> <code>1.2.3</code> <strong>&lt;** <code>1.3.0</code><br><code>^1.2.3</code>: **&gt;&#x3D;</strong> <code>1.2.3</code> <strong>&lt;</strong> <code>2.0.0</code><br><code>^</code>符号时npm安装插件的默认符号</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://chenweiyi.github.io/2017/11/25/npm%E7%9F%A5%E8%AF%86/" data-id="cl4013q5g0004fcv3ea6rbv2r" data-title="npm知识" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm/" rel="tag">npm</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-git使用心得" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2017/08/26/git%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/" class="article-date">
+  <time class="dt-published" datetime="2017-08-26T02:27:01.000Z" itemprop="datePublished">2017-08-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E8%B4%B4/">技术贴</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2017/08/26/git%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/">git使用心得</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>平时经常使用github，clone别人的项目或者自己写项目上传到github都或多或少用到git，但是一段时间不用了又忘了命令，总要浪费些时间查资料，不胜其烦，好记性不如烂笔头，今天我想自己总结一下，加深记忆，方便快速查阅，下面不啰嗦直接上代码：</p>
+<ol>
+<li><p>创建SSH Key。在用户主目录下，看看有没有.ssh目录，如果有，再看看这个目录下有没有<code>id_rsa</code>和<code>id_rsa.pub</code>这两个文件，如果已经有了，不需要创建了。如果没有，执行此命令，创建SSH Key。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">&quot;youremail@example.com&quot;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>git初始化,让当前目录处理git管理之下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加文件。file可以是具体文件名，也可以是文件夹，甚至可以是<code>.</code>(表示add当前所有文件)，<code>post/*</code>(表示post目录下的所有文件)，<code>post/*.js</code>(表示post目录下的所有js文件) </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add &lt;file&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看当前状态，一般系统会提示下一步的操作。比如是否需要commit , push 等操作</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>提交文件到版本库，可以输入提交信息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m <span class="string">&quot;message&quot;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>打印命令可以查看历史记录，<code>git log</code>命令查看的更详细，<code>git log --pretty=oneline</code>命令更直观</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">log</span></span><br><span class="line">$ git <span class="built_in">log</span> --pretty=oneline</span><br><span class="line">$ git <span class="built_in">log</span> --pretty=oneline --abbrev-commit</span><br><span class="line">$ git <span class="built_in">log</span> --graph</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>有时候需要回到上一个版本或者指定版本需要用到这个命令。<code>HEAD</code>表示当前版本，<code>HEAD^</code>表示上一个版本，上上个版本就是<code>HEAD^^</code>，当前版本往上100个版本就是<code>HEAD~100</code>。当前这里也可以使用提交的id，eg. <code>3628164...882e1e0</code>，一般取<strong>前6位</strong>就可以了</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git reset --hard HEAD^</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>有时候版本切回之前的版本了，但是又想恢复到现在的版本，那如何知道现在的版本号呢？别着急，<code>git reflog</code>帮你排除忧虑，这个命令记录了你之前所有版本记录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git reflog</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可以丢弃（discard）工作区的修改，或者已经使用过<code>git add</code>命令后又修改了工作区的内容但是想丢弃，回到<code>git add</code>时的状态。<br>即回到上一次<code>git add</code>或者<code>git commit</code>的状态。如果你<code>git add</code>了一些资料，但是还没有<code>git commmit</code>，这时你想丢弃暂存区的内容，可以使用命令<code>git reset HEAD &lt;file&gt;</code>把内容打回到工作区，再使用命令<code>git checkout -- &lt;file&gt;</code>把工作区的内容丢弃。如果你已经使用了<code>git commit</code>提交了内容，但是又反悔了，可以使用<code>git reset --hard HEAD^</code>返回上一个版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -- &lt;file&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除文件。如果删除了文件，又反悔了，因为此时没有存储到暂存区，所以可以使用<code>git checkout -- &lt;file&gt;</code>恢复。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">rm</span> &lt;file&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除文件。注意和<code>rm &lt;file&gt;</code>的区别，<code>git rm &lt;file&gt;</code>相当于<code>rm &lt;file&gt;</code> + <code>git add &lt;file&gt;</code>。因此若想恢复之前的状态，需要先执行<code>git reset HEAD &lt;file&gt;</code>打回到工作区，再执行<code>git checkout -- &lt;file&gt;</code>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">rm</span> &lt;file&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>这条命令是把本地库和github上的远程库建立关联。这个是采用ssh的方式，所以github上的ssh配置里面需要有你本地的ssh公钥。后面的<code>chenweiyi/gitTest</code>是你的github账号名和项目名。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add origin git@github.com:chenweiyi/gitTest.git</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>当你首次提交文件到github时，需要输入这条命令。<code>push</code>推，表示推送到github；<code>origin</code>远程仓库名；<code>master</code>分支名；<code>-u</code>表示把本地master和远程仓库的master分支关联起来，以后再推送或者拉取时可以简化命令<code>git push origin master</code> &#x2F; <code>git pull</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push -u origin master</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>从远程仓库中克隆项目到本地。当你执行这条命令时，git自动把本地<code>master</code>分支和远程库的<code>master</code>分支对应起来，远程库默认仓库名时<code>origin</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> git@github.com:chenweiyi/gitTest.git</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看当前项目分支</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建名为<em>name</em>的分支</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch &lt;name&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>切换到名为<em>name</em>的分支</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout &lt;name&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建并切换到名为<em>name</em>的分支</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -b &lt;name&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>合并名为<em>name</em>的分支到当前分支</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git merge &lt;name&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除名为<em>name</em>的分支</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch -d &lt;name&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看远程库的信息，<code>$ git remote -v</code> 查看更详细的信息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>推送名为<em>branchName</em>分支到远程库</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin &lt;branchName&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>拉去远程分支到本地。当你从远程库克隆时，默认情况下只能看到本地master分支。可以用<code>git branch</code>命令查看下。现在要看到其他分支就必须使用这个命令创建。比如<code>git checkout -b dev origin/dev</code>就能把远程<code>dev</code>分支创建到本地</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -b &lt;branchName&gt; origin/&lt;branchName&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>与远程库创建连接后，即可使用此命令拉取远程库分支内容到本地。如果拉取失败，则可根据提示使用<code>git branch --set-upstream &lt;branchName&gt; origin/&lt;branchName&gt;</code> 来指定本地分支<code>branchName</code>与远程分支的连接。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git pull</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>首先切换到需要打标签的分支，再打标签。默认标签是打在最新提交的commit上的。有时候，如果忘了打标签，比如，现在已经是周五了，但应该在周一打的标签没有打，怎么办？方法是找到历史提交的commit id，然后打上就可以了。eg. <code>$ git tag v0.9 6224937</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout &lt;branchName&gt;</span><br><span class="line">$ git tag &lt;tagName&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看所有的标签。注意，标签不是按时间顺序列出，而是按字母排序的。可以使用<code>git show &lt;tagName&gt;</code>查看标签信息。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git tag</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可以创建带有说明的标签，<code>-a</code> 指定标签名 ，<code>-m</code> 指定标签信息 ，<code>commitId</code> 版本id</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git tag -a &lt;tagName&gt; -m &lt;message&gt; [commitID]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>标签打错了可以删除标签</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag -d &lt;tagName&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建的标签都只存储在本地，不会自动推送到远程 ，使用此命令推送到远程。或者一次性推送本地尚未推送到远程的所有标签，命令：<code>git push origin --tags</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin &lt;tagName&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果标签已经推送到远程，要删除远程标签就麻烦一点，先从本地删除：<code>git tag -d v1.0</code>。然后再使用该命令：<code>git push origin :refs/tags/v1.0</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin :refs/tags/&lt;tagName&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>保存代码现场</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看所有的stash</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash list</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>恢复指定的stash</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git stash apply stash@&#123;x&#125;</span><br><span class="line">或者恢复最近的stash</span><br><span class="line">git stash pop</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除stash</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash drop</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>有时候合并分支会出现界面被锁住的情况，这时处理方法： 先按 <code>ESC</code>，再输入 <code>:wq</code>，按一下 <code>Enter</code> 键即可退出</p>
+</li>
+<li><p>出现 <code>warning: LF will be replaced by CRLF in ...</code> 提示时，设置 <code>git config --global core.autocrlf false</code> 或者 <code>git config --global core.safecrlf false</code> 消除提示</p>
+</li>
+<li><p>有时<code>.gitignore</code>配置文件不生效，原因是某些文件已经被纳入了版本管理中，做法是删除本地缓存文件 <code>git rm -r --cached</code> ，然后重新添加文件到仓库中 <code>git add xxx </code> 和 <code>git commit -m &#39;xxx&#39; </code></p>
+</li>
+<li><p>本地创建的项目，需要推送到github或者码云上去，首先，你要在github或者码云上创建一个项目，例如名称为<code>projectX</code>，然后使用<code>git init</code>初始化本地工程，再次使用(以码云为例)<code>git remote add origin git@gitee.com:cwy7/projectX.git</code>，然后拉去远程项目使用<code>git pull --rebase origin master</code>，然后检查下状态 <code>git status</code> 以继续下一步操作</p>
+</li>
+<li><p>查看某一个命令的使用说明</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git &lt;<span class="built_in">command</span>&gt; --<span class="built_in">help</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://chenweiyi.github.io/2017/08/26/git%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/" data-id="cl4013q5d0001fcv34ugc5wlx" data-title="git使用心得" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">git</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E8%B4%B4/">技术贴</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/apache/" rel="tag">apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/" rel="tag">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/" rel="tag">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wampserver/" rel="tag">wampserver</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wordpress/" rel="tag">wordpress</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/apache/" style="font-size: 10px;">apache</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/wampserver/" style="font-size: 20px;">wampserver</a> <a href="/tags/wordpress/" style="font-size: 20px;">wordpress</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/05/27/css%E7%9C%8B%E8%BF%99%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86/">css看这篇就够了</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/14/%E4%B8%8A%E4%B8%80%E7%AF%87%E7%9A%84%E5%A7%8A%E5%A6%B9%E7%AF%87-%E8%B0%88%E8%B0%88%E5%AF%B9%E8%B1%A1%E7%9A%84offsetX-clientX-pageX-screenX-layerX-x%E7%9A%84%E5%8C%BA%E5%88%AB/">上一篇的姊妹篇-谈谈对象的offsetX,clientX,pageX,screenX,layerX,x的区别</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/06/%E8%B0%88%E8%B0%88clientXXX-offsetXXX-scrollXXX%E7%9A%84%E7%94%A8%E6%B3%95/">谈谈clientXXX, offsetXXX, scrollXXX的用法</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/09/wordpress%E4%BC%98%E5%8C%96/">wordpress优化</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/26/wordpress%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/">wordpress安装配置</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 cwy<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

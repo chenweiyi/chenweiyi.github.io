@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>css看这篇就够了 | Cwy&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="概述这篇文章里面我不想讲一些概念性的东西，这些概念性的知识是必要的，但是也是可以很容易在往上搜索到的，需要的同学自己可以在往上查找，我希望讲述一些我自己内化的知识，这些知识在实际工作中用的比较多，也可以作为一个手册，有需要可以随时查找。 范围这篇文档讲述的内容暂时不会包括移动端的 css 技术，说实话移动端的我了解的也比较少，主要平时用的比较少。另外，老版本 IE 的兼容性问题也不会被提及，因">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css看这篇就够了">
+<meta property="og:url" content="http://chenweiyi.github.io/2022/05/27/css%E7%9C%8B%E8%BF%99%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86/index.html">
+<meta property="og:site_name" content="Cwy&#39;s blog">
+<meta property="og:description" content="概述这篇文章里面我不想讲一些概念性的东西，这些概念性的知识是必要的，但是也是可以很容易在往上搜索到的，需要的同学自己可以在往上查找，我希望讲述一些我自己内化的知识，这些知识在实际工作中用的比较多，也可以作为一个手册，有需要可以随时查找。 范围这篇文档讲述的内容暂时不会包括移动端的 css 技术，说实话移动端的我了解的也比较少，主要平时用的比较少。另外，老版本 IE 的兼容性问题也不会被提及，因">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://chenweiyi.github.io/images/css-bg.png">
+<meta property="og:image" content="http://chenweiyi.github.io/images/css-box.png">
+<meta property="og:image" content="http://chenweiyi.github.io/images/css-flex.png">
+<meta property="article:published_time" content="2022-05-27T08:48:19.000Z">
+<meta property="article:modified_time" content="2022-06-06T14:46:13.618Z">
+<meta property="article:author" content="cwy">
+<meta property="article:tag" content="前端,js,jquery,javascript,html5,node,nodejs,node.js,Developer,Programmer,html,css,css3,vue,vuex,vue-router">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://chenweiyi.github.io/images/css-bg.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Cwy's blog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Cwy&#39;s blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">山外小楼夜听雨</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://chenweiyi.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-css看这篇就够了" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/05/27/css%E7%9C%8B%E8%BF%99%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86/" class="article-date">
+  <time class="dt-published" datetime="2022-05-27T08:48:19.000Z" itemprop="datePublished">2022-05-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      css看这篇就够了
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <img src="/images/css-bg.png" width="100%">
+
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>这篇文章里面我不想讲一些概念性的东西，这些概念性的知识是必要的，但是也是可以很容易在往上搜索到的，需要的同学自己可以在往上查找，我希望讲述一些我自己内化的知识，这些知识在实际工作中用的比较多，也可以作为一个手册，有需要可以随时查找。</p>
+<h2 id="范围"><a href="#范围" class="headerlink" title="范围"></a>范围</h2><p>这篇文档讲述的内容暂时不会包括移动端的 css 技术，说实话移动端的我了解的也比较少，主要平时用的比较少。另外，老版本 IE 的兼容性问题也不会被提及，因为这些陈旧的知识，慢慢会被舍弃掉，平时用的也不多。</p>
+<h2 id="基础部分"><a href="#基础部分" class="headerlink" title="基础部分"></a>基础部分</h2><h3 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h3><p><img src="/images/css-box.png" alt="盒模型"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">box-sizing: content-box|border-box|inherit;</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>属性类型</th>
+<th>可选值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>box-sizing</td>
+<td>content-box</td>
+<td><em>width</em> 仅仅包含内容，不包含 <em>border</em> 和 <em>padding</em></td>
+</tr>
+<tr>
+<td>box-sizing</td>
+<td>border-box</td>
+<td><em>width</em> 包含 <em>border</em> 和 <em>padding</em></td>
+</tr>
+</tbody></table>
+<h3 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h3><blockquote>
+<p><a target="_blank" rel="noopener" href="https://jsrun.net/XLzKp/edit">Demo</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>选择器类型</th>
+<th>举例</th>
+<th>权级</th>
+<th>权重</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>元素选择器</td>
+<td>p &#x2F; span</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>id 选择器</td>
+<td>#id</td>
+<td>3</td>
+<td>100</td>
+</tr>
+<tr>
+<td>类选择器</td>
+<td>.class</td>
+<td>2</td>
+<td>10</td>
+</tr>
+<tr>
+<td>通用选择器</td>
+<td>* {}</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://jsrun.net/XLzKp/edit">组合选择器</a></td>
+<td>1. 后代；2. 子带；3. 兄弟选择器；4. 交集选择器；5. 并集选择器</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/css/css_pseudo_classes.asp">伪类选择器</a></td>
+<td>span:hover{}</td>
+<td>2</td>
+<td>-</td>
+</tr>
+<tr>
+<td>属性选择器</td>
+<td>span[class&#x3D;”aa”] &#x2F; a[href]</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>!important</td>
+<td>-</td>
+<td>5</td>
+<td>10000</td>
+</tr>
+<tr>
+<td>内联样式</td>
+<td>-</td>
+<td>4</td>
+<td>1000</td>
+</tr>
+</tbody></table>
+<p>需要补充的是：</p>
+<ol>
+<li>权值可以相加，<strong>权级不可跃迁</strong>，比如 11 个 class 选择器 <strong><em>也小于</em></strong> 1 个 id 选择器</li>
+<li>组合选择器可能是元素选择器，类选择器，id 选择器，因此要具体情况具体分析</li>
+<li>权值相同时，以最后面的生效</li>
+<li>权值不同时，权重高的生效</li>
+</ol>
+<h3 id="块元素和行内元素"><a href="#块元素和行内元素" class="headerlink" title="块元素和行内元素"></a>块元素和行内元素</h3><h4 id="块元素"><a href="#块元素" class="headerlink" title="块元素"></a>块元素</h4><ol>
+<li>默认情况下，块元素是独占一行的。</li>
+<li>常见的块元素：div, p, h1-h6, table, hr, ul, ol, form</li>
+<li>高度，行高，内外边距均可设置</li>
+<li>宽度缺省是容器宽度的 100%</li>
+<li>可以容纳内联元素和其他块元素</li>
+</ol>
+<h4 id="行内元素"><a href="#行内元素" class="headerlink" title="行内元素"></a>行内元素</h4><p>也叫内嵌元素或者内联元素。</p>
+<ol>
+<li>默认情况下，现在在一行，一行显示不下，才会换行显示。</li>
+<li>任何不是块级元素的都是行内元素，比如：a, span, label, strong</li>
+<li>宽高，行高，内外边距均不可设置；</li>
+<li>宽度就是它容纳的文本或者图片的宽度，不可改变；</li>
+<li>行内元素只能容纳其他行内元素或者文本；</li>
+</ol>
+<p><strong>当然如果把行内元素转化为块元素（display: inline-block or block），则该行内元素具有块元素的一切特征。</strong></p>
+<h4 id="标准文档流"><a href="#标准文档流" class="headerlink" title="标准文档流"></a>标准文档流</h4><ol>
+<li>将窗体自上而下分成一行一行，并在每行中按从左至右的顺序排放元素，即为标准文档流。</li>
+<li>每个非浮动块级元素都独占一行，浮动元素则按规定浮在行的一端。若当前行放不下，则再另起一行浮动。</li>
+<li>内联元素不会独占一行，除非一行摆不下，才会另起一行</li>
+<li>浮动，绝对定位，固定定位，这三种情况将使元素脱离标准文档流</li>
+<li>浮动元素不占任何正常标准文档流空间，而浮动元素的定位还是基于正常的文档流，然后从文档流中抽出并尽可能远的移动至左侧或者右侧。文字内容会围绕在浮动元素周围。当一个元素从正常文档流中抽出后，仍然在文档流中的其他元素将忽略该元素并填补他原先的空间</li>
+<li>相对定位（position: relative）并不会脱离文档流，只是相对于原位置进行偏移，但仍保留原位置。</li>
+</ol>
+<h3 id="浮动和定位"><a href="#浮动和定位" class="headerlink" title="浮动和定位"></a>浮动和定位</h3><p>css 布局有三种机制 – 普通流，浮动，定位，下面讲一下浮动和定位。</p>
+<h4 id="浮动（float）"><a href="#浮动（float）" class="headerlink" title="浮动（float）"></a>浮动（float）</h4><blockquote>
+<p>浮动例子[demo](<a target="_blank" rel="noopener" href="https://jsrun.net/uvzKp/edit">float - JSRUN.NET</a>)</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">float = left | right | none | inherit</span><br><span class="line">clear = left | right | none | inherit</span><br></pre></td></tr></table></figure>
+
+<p>浮动的特点：</p>
+<ol>
+<li>脱离标准流，不占位置（自己原来的位子漏给后面的标准流）</li>
+<li>浮动只能往左或者往右移动，不能上下浮动，直到它的边缘碰到包含框或者另一个浮动元素为止，如果父亲元素装不下了，默认另起一行显示，浮动元素之间默认无缝隙。</li>
+<li>任何元素都可以添加浮动，无论它是块元素还是行内元素，浮动之后可以直接设置宽高，默认行为类似于行内块特性，不需要 display 转换。</li>
+</ol>
+<p>浮动的使用技巧：一般一个标准流的父亲，里面一个孩子浮动了，其他的孩子也都浮动了。</p>
+<p>浮动元素于父元素的关系：</p>
+<ol>
+<li>浮动的元素压不住父元素的边框；</li>
+<li>浮动的元素压不住父元素的 padding;</li>
+<li>定位可以随便压；</li>
+</ol>
+<p>清除浮动的理解：</p>
+<ol>
+<li>清除浮动不是真的把浮动清除，而是清除加了浮动带给后面的标准流的影响；</li>
+<li>清除浮动是针对标准流元素的，清除的是浮动元素对自身的影响；</li>
+<li>清除浮动意味着，清除那一侧的元素不再具有浮动效果（实际还是有浮动的）;</li>
+</ol>
+<p>什么时候清除浮动？</p>
+<ol>
+<li>父亲没有高度；</li>
+<li>子元素有浮动；</li>
+<li>因为浮动影响了后面的布局；</li>
+</ol>
+<h4 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h4><blockquote>
+<p><a target="_blank" rel="noopener" href="https://jsrun.net/aLzKp/edit">Demo</a>例子</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">position = relative | absolute | fixed | <span class="keyword">static</span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>相对定位（position: relative）: 不会脱离文档流，不影响其他元素的布局，只是基于原位置偏移了一定的位置，并保留原来占的位置。</li>
+<li>绝对定位（position: absolute）: 会脱离文档流，会影响其他元素的布局，元素原先在标准文档流中所占的空间会关闭，就好像该元素原本不存在一样， 相对于离它最近的父元素带有相对定位或者绝对定位的元素做偏移。</li>
+<li>固定定位（position: fixed）: 会脱离文档流，以浏览器的可视窗口为基准进行偏移，跟父元素没有任何关系，不随滚动条滚动。</li>
+</ol>
+<h4 id="浮动和定位的使用的场景："><a href="#浮动和定位的使用的场景：" class="headerlink" title="浮动和定位的使用的场景："></a>浮动和定位的使用的场景：</h4><ol>
+<li><p>浮动会脱离文档流，但是也会影响其后面的元素排布，因此如果是需要方便的布局，选择绝对定位比较好，浮动一般用于导航条等横式布局中。</p>
+</li>
+<li><p>父元素内部是浮动元素的，如果需要撑满父元素，有几种方式：</p>
+<ol>
+<li>父元素设置伪元素清除浮动</li>
+<li>父元素内部加入一个清除浮动的元素</li>
+<li>父元素设置 overflow</li>
+</ol>
+</li>
+<li><p>父元素内部是绝对定位元素的，父元素的高度是撑不开的，如果需要撑开，需要通过 <em>javascript</em> 计算父元素的高度</p>
+</li>
+</ol>
+<h3 id="弹性盒子布局-flex"><a href="#弹性盒子布局-flex" class="headerlink" title="弹性盒子布局(flex)"></a>弹性盒子布局(flex)</h3><img src="/images/css-flex.png" width="100%" />
+
+<p>Flex 布局是 css3 新加入的布局方案，可以简便，完整，响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持。Flex 布局将成为未来布局的首选方案。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">display</span>: flex | (inline - flex)</span><br></pre></td></tr></table></figure>
+
+<p>注意：设置 Flex 布局后，子元素的<code>float</code>,<code>clear</code>,<code>vertical-align</code>属性将失效。</p>
+<p>对着上图解释一下 flex 布局的大致情况：</p>
+<ol>
+<li>采用 flex 布局的元素，称为容器，它的所有子元素自动成为容器的成员，称为项目。</li>
+<li>容器默认存在两个轴，主轴（main axis）和侧轴（cross axis），两个轴互相垂直。主轴的开始位置（与边框的交叉点，左侧或者上侧）叫做<code>main start</code> ,结束位置叫做<code>main end</code>; 侧轴的开始位置叫做<code>cross start</code>,结束位置叫做<code>cross end</code>。</li>
+<li>项目默认沿主轴排列，单个项目占据的主轴空间叫做<code>main size</code>, 占据的侧轴空间叫做<code>cross size</code>。</li>
+</ol>
+<h5 id="容器的属性"><a href="#容器的属性" class="headerlink" title="容器的属性"></a>容器的属性</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">// 定义了主轴的方向：</span><br><span class="line">// 水平（起点在左端） | 水平（起点在右端）| 垂直（起点上端） | 垂直（起点下沿）</span><br><span class="line">flex-direction: row(默认) | row-reverse | column | column-reverse;</span><br><span class="line">// 定义了项目在主轴上排不下，应该如何显示</span><br><span class="line">// 不换行 | 换行 | 换行（行序置换）</span><br><span class="line">flex-wrap: nowrap(默认) | wrap | wrap-reverse;</span><br><span class="line">// flex-direction 和 flex-wrap的简写,比如 row nowrap</span><br><span class="line">flex-flow: &lt;flex-direction&gt; &lt;flex-wrap&gt;;</span><br><span class="line"></span><br><span class="line">// 定义了项目在主轴上的对齐方式。</span><br><span class="line">// flex-start: 左对齐（第一个项目紧靠左边框）</span><br><span class="line">// flex-end: 右对齐（最后一个项目紧靠左边框）</span><br><span class="line">// center: 居中</span><br><span class="line">// space-between: 两端对齐（紧靠边框），项目之间的间隔都相等</span><br><span class="line">// space-around: 每个项目两侧的间隔相等，所以项目之间的间隔比项目与边框的间隔大一倍</span><br><span class="line">justify-content: flex-start(默认值)|flex-end|center|space-between|space-around;</span><br><span class="line">// 定义了项目在侧轴上的对齐方式。</span><br><span class="line">// flex-start: 侧轴起点对齐（所有项目上沿紧靠上边框）</span><br><span class="line">// flex-end: 侧轴终点对齐（所有项目下沿紧靠下边框）</span><br><span class="line">// center: 居中</span><br><span class="line">// baseline: 以所有项目的第一行文字作为基线对齐</span><br><span class="line">// stretch: 如果项目未设置高度或者设置为auto,则将占满整个容器的高度</span><br><span class="line">align-items: flex-start|flex-end|center|baseline|stretch(默认值);</span><br><span class="line">// 定义了多跟轴线的对齐方式。如果项目只有一根轴线，则该属性不起作用。</span><br><span class="line">// flex-start: 与侧轴的起点对齐，最上面一根轴线紧靠上边框</span><br><span class="line">// flex-end: 与侧轴的终点对齐，最下面一根轴线紧靠下边框</span><br><span class="line">// center: 与侧轴的中点对齐</span><br><span class="line">// space-between: 与侧轴两端对齐，轴线之间间隔均分</span><br><span class="line">// space-around: 每根轴线两侧间隔都相等，所以，轴线之间的间隔比轴线与边框的间隔大一倍。</span><br><span class="line">// stretch: 轴线占满整个交叉轴</span><br><span class="line">align-content: flex-start|flex-end|center|space-between|space-around|stretch(默认)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="项目的属性"><a href="#项目的属性" class="headerlink" title="项目的属性"></a>项目的属性</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">// 定义了项目的排列顺序，数值越小，排列越靠前，默认为0</span><br><span class="line">order: &lt;integer&gt;;</span><br><span class="line">// 定义了项目的放大比例，默认0，即如果存在剩余空间，也不放大</span><br><span class="line">// 如果所有项目的flex-grow的属性都为1，则他们将等分剩余空间（如果有的话）。</span><br><span class="line">// 如果一个项目的flex-grow的属性都为2，其他项目都为1，则前者占据的剩余空间将比其他项目多1倍。</span><br><span class="line">flex-grow: &lt;number&gt;;</span><br><span class="line">// 定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小</span><br><span class="line">// 如果所有项目的flex-shrink都为1，则当空间不足时，都将等比例缩小。</span><br><span class="line">// 如果一个项目的flex-shrink属性为0，其他项目都为1，则空间不足时，前者不缩小。</span><br><span class="line">flex-shrink: &lt;number&gt;; // 默认 1</span><br><span class="line">// 定义了项目的宽度，如果同时定义了width, width属性无效，默认值是auto。</span><br><span class="line">// 默认为auto时，width还是有效的。</span><br><span class="line">flex-basic: &lt;length&gt; | auto;</span><br><span class="line">// 是flex-grow,flex-shrink,flex-basis的简写，默认值是0 1 auto。后两个属性可选。</span><br><span class="line">// 建议优化使用这个属性，而不是单独写三个分离的属性，因为浏览器会推断相关值</span><br><span class="line">// 该属性有两个快捷值：auto(1 1 auto) 和 none(0 0 auto)</span><br><span class="line">flex: number | [&lt;flex-grow&gt; &lt;flex-shrink&gt;? || &lt;flex-basis&gt;]；</span><br><span class="line">// 该属性允许定义单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto,表示继承父元素的align-items属性。</span><br><span class="line">align-self: auto | flex-start | flex-end | center | baseline | stretch;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>关于 flex 的几点理解：</p>
+<ol>
+<li>容器设为 flex 后，项目可以设置宽高，无论项目是否是行内元素还是块级元素</li>
+<li>flex-basis 针对于主轴上的宽或者高，如果设置了值，则主轴对应的宽和高设置会失效</li>
+<li>主轴是水平方向时，项目如果设置了高度，则容器设置 align-items: stretch 也不会生效；反之主轴是垂直方向也是类似的，项目如果设置了宽度，则容器设置了 align-items:stretch 也不会生效。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://chenweiyi.github.io/2022/05/27/css%E7%9C%8B%E8%BF%99%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86/" data-id="cl4013q5q000hfcv37s5n5vuu" data-title="css看这篇就够了" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/11/14/%E4%B8%8A%E4%B8%80%E7%AF%87%E7%9A%84%E5%A7%8A%E5%A6%B9%E7%AF%87-%E8%B0%88%E8%B0%88%E5%AF%B9%E8%B1%A1%E7%9A%84offsetX-clientX-pageX-screenX-layerX-x%E7%9A%84%E5%8C%BA%E5%88%AB/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">上一篇的姊妹篇-谈谈对象的offsetX,clientX,pageX,screenX,layerX,x的区别</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E8%B4%B4/">技术贴</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/apache/" rel="tag">apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/" rel="tag">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/" rel="tag">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wampserver/" rel="tag">wampserver</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wordpress/" rel="tag">wordpress</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/apache/" style="font-size: 10px;">apache</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/wampserver/" style="font-size: 20px;">wampserver</a> <a href="/tags/wordpress/" style="font-size: 20px;">wordpress</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/05/27/css%E7%9C%8B%E8%BF%99%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86/">css看这篇就够了</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/14/%E4%B8%8A%E4%B8%80%E7%AF%87%E7%9A%84%E5%A7%8A%E5%A6%B9%E7%AF%87-%E8%B0%88%E8%B0%88%E5%AF%B9%E8%B1%A1%E7%9A%84offsetX-clientX-pageX-screenX-layerX-x%E7%9A%84%E5%8C%BA%E5%88%AB/">上一篇的姊妹篇-谈谈对象的offsetX,clientX,pageX,screenX,layerX,x的区别</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/06/%E8%B0%88%E8%B0%88clientXXX-offsetXXX-scrollXXX%E7%9A%84%E7%94%A8%E6%B3%95/">谈谈clientXXX, offsetXXX, scrollXXX的用法</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/09/wordpress%E4%BC%98%E5%8C%96/">wordpress优化</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/26/wordpress%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/">wordpress安装配置</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 cwy<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
