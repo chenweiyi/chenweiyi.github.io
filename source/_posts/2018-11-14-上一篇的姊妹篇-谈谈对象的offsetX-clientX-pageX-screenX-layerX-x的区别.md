@@ -2,7 +2,10 @@
 title: '上一篇的姊妹篇-谈谈对象的offsetX,clientX,pageX,screenX,layerX,x的区别'
 date: 2018-11-14 22:03:22
 categories:
+- 技术贴
 tags:
+- javascript
+- html
 ---
 
 今天来讲一下offsetX,clientX,pageX,screenX,layerX,x的区别，以及在chrome,firefox,edge浏览器中的相同和不同点
